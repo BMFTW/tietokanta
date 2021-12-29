@@ -5,7 +5,7 @@
 	<head>
 		
 		<!-- Title -->
-		<title>Awanic Oy - Käyttöliittymä tietokantaan</title>  
+		<title>Käyttöliittymä tietokantaan</title>  
 
 		<!-- CSS -->
 		<link href = "style.css" rel = "stylesheet">
