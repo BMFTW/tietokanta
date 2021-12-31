@@ -65,6 +65,7 @@
 							<b>"Vanhat"</b> <br>
 
 							<label> <input type = "radio"  name = "table"  value = "apro_kohteet">        APro-kohteet           </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "eki_kohteet">         EKI-kohteet            </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "haipro_kohteet">      HaiPro-kohteet         </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "posipro_kohteet">     PosiPro-kohteet        </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "potra_kohteet">       PotRa-kohteet          </label> <br>
@@ -72,6 +73,7 @@
 							<label> <input type = "radio"  name = "table"  value = "rapro_kohteet">       RaPro-kohteet          </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "spro_kohteet">        SPro-kohteet           </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "vakapro_kohteet">     VakaPro-kohteet        </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "vpn_kohteet">         VPN-kohteet            </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "wb_kohteet">          Whistleblowing-kohteet </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "wpro_kohteet">        WPro-kohteet           </label> <br> <br>
 
@@ -164,11 +166,13 @@
 							"tuotteet"                  => "Tuotteet", 
 							"tuotteet_osiot"            => "Osiot",
 							"apro_kohteet"              => "APro-kohteet",
+							"eki_kohteet"               => "EKI-kohteet",
 							"haipro_kohteet"            => "HaiPro-kohteet",
 							"posipro_kohteet"           => "PosiPro-kohteet",
 							"qpro_kohteet"              => "QPro-kohteet",
 							"spro_kohteet"              => "SPro-kohteet",
 							"vakapro_kohteet"           => "VakaPro-kohteet",
+							"vpn_kohteet"               => "VPN-kohteet",
 							"wb_kohteet"                => "Whistleblowing-kohteet",
 							"wpro_kohteet"              => "WPro-kohteet",
 							"potra_kohteet"             => "PotRa-kohteet",

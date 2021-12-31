@@ -14,7 +14,7 @@ $(document).ready( function() {
     id_col = "tuoteID";
   else if ( table == "tuotteet_osiot" )
     id_col = "OID";
-  else if ( table == "apro_kohteet" || table == "haipro_kohteet" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet")
+  else if ( table == "apro_kohteet" || table == "eki_kohteet" ||table == "haipro_kohteet" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet")
     id_col = "Kohde_ID";
   else if ( table == "qpro_kohteet" )
     id_col = "KohdeID";
@@ -159,7 +159,7 @@ $(document).ready( function() {
             id_col = "tuoteID";
           else if ( table == "tuotteet_osiot" )
             id_col = "OID";
-          else if ( table == "apro_kohteet" || table == "haipro_kohteet" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet")
+            else if ( table == "apro_kohteet" || table == "eki_kohteet" ||table == "haipro_kohteet" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet")
             id_col = "Kohde_ID";
           else if ( table == "qpro_kohteet" )
             id_col = "KohdeID";
