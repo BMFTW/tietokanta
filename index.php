@@ -5,7 +5,7 @@
 	<head>
 		
 		<!-- Title -->
-		<title>Käyttöliittymä tietokantaan</title>  
+		<title>Tietokantakäyttöliittymä</title>  
 
 		<!-- CSS -->
 		<link href = "style.css" rel = "stylesheet">
