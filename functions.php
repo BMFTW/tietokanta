@@ -242,7 +242,7 @@ function updateTable($table, $column, $value, $id_col, $id) {
 
   } catch ( PDOException $e ) {
 
-    echo "Tallennus epäonnistui. Virheilmoitus: <br>" . $e -> getMessage();
+    echo "<b>Tallennus epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
     
   }
 
@@ -269,7 +269,7 @@ function insertRow($table, $id_col, $value) {
 
   } catch ( PDOException $e ) {
 
-    echo "Tallennus epäonnistui. Virheilmoitus: <br>" . $e -> getMessage();
+    echo "<b>Lisäys epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
 
   }
   
@@ -296,7 +296,7 @@ function deleteRow($table, $id_col, $value) {
 
   } catch ( PDOException $e ) {
 
-    echo "Poisto epäonnistui. Virheilmoitus: <br>" . $e -> getMessage();
+    echo "<b>Poisto epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
 
   }
   
