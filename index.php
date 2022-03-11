@@ -66,7 +66,7 @@
 
 							<label> <input type = "radio"  name = "table"  value = "apro_kohteet">        APro-kohteet           </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "eki_kohteet">         EKI-kohteet            </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "haipro_kohteet">      HaiPro-kohteet         </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "haipro_asiakkaat">      HaiPro-kohteet         </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "posipro_kohteet">     PosiPro-kohteet        </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "potra_kohteet">       PotRa-kohteet          </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "qpro_kohteet">        QPro-kohteet           </label> <br>
@@ -167,7 +167,7 @@
 							"tuotteet_osiot"            => "Osiot",
 							"apro_kohteet"              => "APro-kohteet",
 							"eki_kohteet"               => "EKI-kohteet",
-							"haipro_kohteet"            => "HaiPro-kohteet",
+							"haipro_asiakkaat"            => "HaiPro-kohteet",
 							"posipro_kohteet"           => "PosiPro-kohteet",
 							"qpro_kohteet"              => "QPro-kohteet",
 							"spro_kohteet"              => "SPro-kohteet",

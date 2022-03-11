@@ -20,7 +20,7 @@ $haipro_tables = array(
   "tuotteet_osiot",
   "apro_kohteet",
   "eki_kohteet",
-  "haipro_kohteet",
+  "haipro_asiakkaat",
   "posipro_kohteet",
   "qpro_kohteet",
   "spro_kohteet",
