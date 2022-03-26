@@ -40,20 +40,20 @@
 							<!-- Asiakkaat -->
 							<b>Asiakkaat</b> <br>
 
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat">                 Asiakkaat         </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_sopimukset">      Sopimukset        </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_tarjoukset">      Tarjoukset        </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_koulutukset">     Koulutukset       </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_laskut">          Laskut            </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_tuotteet">        Tuotteet          </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_tuotteet_hinnat"> Tuotteiden hinnat </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "asiakkaat_lisatiedot">      Lisätiedot        </label> <br> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat">                 Asiakkaat            </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_sopimukset">      Sopimukset           </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_tarjoukset">      Tarjoukset           </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_koulutukset">     Koulutukset          </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_laskut">          Laskut               </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_tuotteet">        Tuotteet             </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_tuotteet_hinnat"> Tuotteiden hinnat    </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "asiakkaat_lisatiedot">      Lisätiedot           </label> <br> <br>
 							
 							<!-- Tuotteet -->
 							<b>Tuotteet</b> <br>
 							
-							<label> <input type = "radio"  name = "table"  value = "tuotteet">                  Tuotteet         </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "tuotteet_osiot">            Tuotteet - Osiot </label> <br> <br>
+							<label> <input type = "radio"  name = "table"  value = "tuotteet">                  Tuotteet             </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "tuotteet_lomakkeet">        Tuotteet - Lomakkeet </label> <br> <br>
 
 						</td>
 
@@ -64,9 +64,11 @@
 
 							<b>"Vanhat"</b> <br>
 
+							<label> <input type = "radio"  name = "table"  value = "tj_kohteet">          Kaikki TJ-kohteet      </label> <br> <br>
+
 							<label> <input type = "radio"  name = "table"  value = "apro_kohteet">        APro-kohteet           </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "eki_kohteet">         EKI-kohteet            </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "haipro_asiakkaat">      HaiPro-kohteet         </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "haipro_asiakkaat">    HaiPro-kohteet         </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "posipro_kohteet">     PosiPro-kohteet        </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "potra_kohteet">       PotRa-kohteet          </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "qpro_kohteet">        QPro-kohteet           </label> <br>
@@ -164,10 +166,11 @@
 							"asiakkaat_tuotteet_hinnat" => "Asiakkaat - Tuotteet - Hinnat", 
 							"asiakkaat_lisatiedot"      => "Lisätiedot", 
 							"tuotteet"                  => "Tuotteet", 
-							"tuotteet_osiot"            => "Osiot",
+							"tuotteet_lomakkeet"        => "Lomakkeet",
+							"tj_kohteet"                => "Kaikki TJ-kohteet",
 							"apro_kohteet"              => "APro-kohteet",
 							"eki_kohteet"               => "EKI-kohteet",
-							"haipro_asiakkaat"            => "HaiPro-kohteet",
+							"haipro_asiakkaat"          => "HaiPro-kohteet",
 							"posipro_kohteet"           => "PosiPro-kohteet",
 							"qpro_kohteet"              => "QPro-kohteet",
 							"spro_kohteet"              => "SPro-kohteet",
