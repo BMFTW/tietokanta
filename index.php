@@ -122,9 +122,29 @@
 					// Columns
 					$columns = getColumns($table);
 					$columns = array_map("htmlspecialchars", $columns);
-					
+
+					// Skip column selection?
+					$skip_column_selection = array (
+
+						"asiakkaat",
+						"asiakkaat_tarjoukset",
+						"asiakkaat_koulutukset",
+						"asiakkaat_tuotteet_hinnat",
+						"asiakkaat_lisatiedot",
+
+						"tuotteet",
+						"tuotteet_lomakkeet",
+
+						"tj_kohteet",
+						"eki_kohteet",
+						"vpn_kohteet"
+
+					);
+
+					$skip_column_selection = in_array( $table, $skip_column_selection );
+
 					// Checkboxes for column selection
-					if ( !isset($_POST["show_table"]) ) {
+					if ( !isset($_POST["show_table"]) && !$skip_column_selection ) {
 					
 						echo "<b>Valitse tiedot</b>";
 
@@ -206,11 +226,13 @@
 						// Filtered table
 						echo "<div id = 'new_table'></div>";
 
-						// Selected columns
-						$selected_columns = $_POST['selected_columns'];        
-
 						// Generate table
-						$html = generateTable($table, $selected_columns);
+						if ( $skip_column_selection ) {
+							$html = generateTable($table, "*");
+						} else {
+							$selected_columns = $_POST['selected_columns'];
+							$html = generateTable($table, $selected_columns);
+						}
 
 						echo $html;
 
