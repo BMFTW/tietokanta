@@ -78,6 +78,9 @@
 							<label> <input type = "radio"  name = "table"  value = "vpn_kohteet">         VPN-kohteet            </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "wb_kohteet">          Whistleblowing-kohteet </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "wpro_kohteet">        WPro-kohteet           </label> <br> <br>
+							
+							<label> <input type = "radio"  name = "table"  value = "tj_irtisanotut">      Irtisanotut            </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "tj_arkistokanta">     Arkistokanta           </label> <br> <br>
 
 							<label> <input type = "radio"  name = "table"  value = "haipro_kohde_laskut"> HaiPro-laskut          </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "wpro_kohde_laskut">   WPro-laskut            </label> <br> <br>
@@ -176,7 +179,8 @@
 					else {
 
 						// Selected table name
-						$tables = array(
+						$tables = array (
+							
 							"asiakkaat"                 => "Asiakkaat", 
 							"asiakkaat_sopimukset"      => "Sopimukset", 
 							"asiakkaat_tarjoukset"      => "Tarjoukset", 
@@ -187,26 +191,35 @@
 							"asiakkaat_lisatiedot"      => "Lisätiedot", 
 							"tuotteet"                  => "Tuotteet", 
 							"tuotteet_lomakkeet"        => "Lomakkeet",
+
 							"tj_kohteet"                => "Kaikki TJ-kohteet",
 							"apro_kohteet"              => "APro-kohteet",
 							"eki_kohteet"               => "EKI-kohteet",
 							"haipro_asiakkaat"          => "HaiPro-kohteet",
 							"posipro_kohteet"           => "PosiPro-kohteet",
+							"potra_kohteet"             => "PotRa-kohteet",
 							"qpro_kohteet"              => "QPro-kohteet",
+							"rapro_kohteet"             => "RaPro-kohteet",
 							"spro_kohteet"              => "SPro-kohteet",
 							"vakapro_kohteet"           => "VakaPro-kohteet",
 							"vpn_kohteet"               => "VPN-kohteet",
 							"wb_kohteet"                => "Whistleblowing-kohteet",
 							"wpro_kohteet"              => "WPro-kohteet",
-							"potra_kohteet"             => "PotRa-kohteet",
-							"rapro_kohteet"             => "RaPro-kohteet",
+							
+							"tj_irtisanotut"            => "Irtisanotut",
+							"tj_arkistokanta"           => "Arkistokanta",
+
 							"haipro_kohde_laskut"       => "HaiPro-laskut",
 							"wpro_kohde_laskut"         => "WPro-laskut",
+
 							"LOVe_asiakkaat"            => "LOVe-asiakkaat",
 							"LOVe_laskut"               => "LOVe-laskut",
+
 							"SAVe_asiakkaat"            => "SÄVe-asiakkaat",
 							"SAVe_laskut"               => "SÄVe-laskut",
+
 							"eloki_asiakkaat"           => "eLOKI-asiakkaat"
+
 						);
 										
 						echo "<h3 id = 'table_name'>" . $tables[$table] . "</h3>";

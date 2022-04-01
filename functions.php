@@ -32,7 +32,9 @@ $haipro_tables = array(
   "potra_kohteet",
   "rapro_kohteet",
   "haipro_kohde_laskut",
-  "wpro_kohde_laskut"
+  "wpro_kohde_laskut",
+  "tj_irtisanotut",
+  "tj_arkistokanta"
 
 );
 

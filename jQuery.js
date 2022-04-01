@@ -3,10 +3,22 @@ $(document).ready( function() {
   // Table
   var table = $("#selected_table").text();
 
+  // Color table names
+  $("label").has("input[value^=asiakkaat]").css("color", "orange");
+  $("label").has("input[value^=tuotteet]").css("color", "green");
+  $("label").has("input[value$=kohteet]").css("color", "blue");
+  $("label").has("input[value=haipro_asiakkaat]").css("color", "blue");
+  $("label").has("input[value^=tj]").css("color", "grey");
+  $("label").has("input[value=tj_kohteet]").css("color", "red");
+  $("label").has("input[value$=_kohde_laskut]").css("color", "brown");
+  $("label").has("input[value^=LOVe]").css("color", "YellowGreen");
+  $("label").has("input[value^=SAVe]").css("color", "CadetBlue");
+  $("label").has("input[value=eloki_asiakkaat]").css("color", "Tomato");
+  
   // ID column
   var id_col;
 
-  if ( table == "asiakkaat" || table == "asiakkaat_sopimukset" || table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot")
+  if ( table == "asiakkaat" || table == "asiakkaat_sopimukset" || table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot" )
     id_col = "asiakasID";
   else if ( table == "asiakkaat_tuotteet_hinnat" )
     id_col = "ATUID";
@@ -14,13 +26,13 @@ $(document).ready( function() {
     id_col = "tuoteID";
   else if ( table == "tuotteet_lomakkeet" )
     id_col = "OID";
-  else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet")
+  else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" )
     id_col = "Kohde_ID";
   else if ( table == "qpro_kohteet" )
     id_col = "KohdeID";
   else if ( table == "haipro_kohde_laskut" || table == "wpro_kohde_laskut" || table == "LOVe_laskut" || table == "SAVe_laskut" )
     id_col = "lasku_nro";
-  else if (table == "LOVe_asiakkaat" || table == "SAVe_asiakkaat" || table == "eloki_asiakkaat")
+  else if ( table == "LOVe_asiakkaat" || table == "SAVe_asiakkaat" || table == "eloki_asiakkaat" )
     id_col = "Asiakas_ID";
 
   // Valitse kaikki
@@ -151,7 +163,7 @@ $(document).ready( function() {
           // ID column
           var id_col;
 
-          if ( table == "asiakkaat" || table == "asiakkaat_sopimukset" || table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot")
+          if ( table == "asiakkaat" || table == "asiakkaat_sopimukset" || table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot" )
             id_col = "asiakasID";
           else if ( table == "asiakkaat_tuotteet_hinnat" )
             id_col = "ATUID";
@@ -159,13 +171,13 @@ $(document).ready( function() {
             id_col = "tuoteID";
           else if ( table == "tuotteet_lomakkeet" )
             id_col = "OID";
-          else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet")
+          else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" )
             id_col = "Kohde_ID";
           else if ( table == "qpro_kohteet" )
             id_col = "KohdeID";
           else if ( table == "haipro_kohde_laskut" || table == "wpro_kohde_laskut" || table == "LOVe_laskut" || table == "SAVe_laskut" )
             id_col = "lasku_nro";
-          else if (table == "LOVe_asiakkaat" || table == "SAVe_asiakkaat" || table == "eloki_asiakkaat")
+          else if ( table == "LOVe_asiakkaat" || table == "SAVe_asiakkaat" || table == "eloki_asiakkaat" )
             id_col = "Asiakas_ID";
 
           // Valitse kaikki
