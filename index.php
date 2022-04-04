@@ -145,6 +145,7 @@
 
 						"tj_kohteet",
 						"eki_kohteet",
+						"posipro_kohteet",
 						"vpn_kohteet",
 						"haipro_pk_kohteet"
 
