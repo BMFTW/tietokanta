@@ -71,7 +71,7 @@
 							<b>Alataulut</b> <br>
 
 							<label> <input type = "radio"  name = "table"  value = "eki_kohteet">         EKI-kohteet            </label> <br>
-							<label> <input type = "radio"  name = "table"  value = "posipro_kohteet">     PosiPro-kohteet        </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "posipro_kohteet">     POS-kohteet            </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "vpn_kohteet">         VPN-kohteet            </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "haipro_pk_kohteet">   PK-kohteet             </label> <br>
 
@@ -206,7 +206,7 @@
 							"apro_kohteet"              => "APro-kohteet",
 							"eki_kohteet"               => "EKI-kohteet",
 							"haipro_asiakkaat"          => "HaiPro-kohteet",
-							"posipro_kohteet"           => "PosiPro-kohteet",
+							"posipro_kohteet"           => "POS-kohteet",
 							"potra_kohteet"             => "PotRa-kohteet",
 							"qpro_kohteet"              => "QPro-kohteet",
 							"rapro_kohteet"             => "RaPro-kohteet",
