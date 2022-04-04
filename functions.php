@@ -249,6 +249,72 @@ function updateTable($table, $column, $value, $id_col, $id) {
     
   }
 
+  if ( $column == "[pk]" ) {
+
+    if ( $value != "" ) {
+
+        if ( $table == "haipro_asiakkaat" )
+          $tuote_taulu = "HaiPro";
+        else
+          $tuote_taulu = "HaiPro";
+
+        $sql_exists = "SELECT COUNT(*) FROM haipro_pk_kohteet WHERE Kohde_ID = ?";
+        $stmt = $conn -> prepare($sql_exists);
+        $stmt -> execute([$id]);
+        $count = $stmt -> fetch();
+        $count = $count[0];
+
+        if ( $count == "0" ) {
+
+            $sql = "
+
+                INSERT INTO
+                    haipro_pk_kohteet ( Kohde_ID, kohde_nimi, tuote_taulu, kayttoonotto, mobiililinkki, tallentaja, Lisatiedot )
+                SELECT
+                    Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot
+                FROM
+                    haipro_asiakkaat
+                WHERE
+                    $id_col = ?
+                
+            ";
+            
+            try {
+
+              $stmt = $conn -> prepare($sql);
+            
+              $stmt -> execute([$id]);
+
+            } catch ( PDOException $e ) {
+
+              echo "<b>Tietojen lisäys tauluun PK-kohteet epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
+          
+            }
+
+        }
+
+    }
+
+    else {
+
+      $sql  = "DELETE FROM haipro_pk_kohteet WHERE Kohde_ID = ?";
+
+      try {
+
+          $stmt = $conn -> prepare($sql);
+        
+          $stmt -> execute([$id]);
+
+      } catch ( PDOException $e ) {
+
+        echo "<b>Tietojen poisto taulusta PK-kohteet epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
+    
+      }
+
+    }
+
+  } 
+
 }
 
 // Insert row
