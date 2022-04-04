@@ -3,9 +3,18 @@ $(document).ready( function() {
   // Table
   var table = $("#selected_table").text();
 
+  // Center
+  $("#logo").css("margin-top", "10px").css("margin-left", "750px").css("margin-bottom", "-5px");
+  $("#header").css("margin-left", "625px").css("margin-bottom", "25px");
+  $("#tables").css("margin-left", "500px");
+  $("#tables_alataulut").css("margin-top", "100px");
+  $("#valitse_tiedot").css("margin-top", "10px").css("margin-left", "765px");
+  $("#valitse_tiedot_txt").css("margin-left", "10px");
+  $("input[type=submit]").css("margin-top", "10px").css("margin-bottom", "20px").css("margin-left", "780px");
+
+  $("input[value^=asiakkaat]").prop("disabled", "true");
+
   // Color table names
-  $("label").has("input[value^=asiakkaat]").css("color", "orange");
-  $("label").has("input[value^=tuotteet]").css("color", "green");
   $("label").has("input[value$=kohteet]").css("color", "blue");
   $("label").has("input[value=haipro_asiakkaat]").css("color", "blue");
   $("label").has("input[value^=tj]").css("color", "grey");
@@ -14,6 +23,8 @@ $(document).ready( function() {
   $("label").has("input[value^=LOVe]").css("color", "YellowGreen");
   $("label").has("input[value^=SAVe]").css("color", "CadetBlue");
   $("label").has("input[value=eloki_asiakkaat]").css("color", "Tomato");
+  $("label").has("input[value^=asiakkaat]").css("color", "LightGrey");
+  $("label").has("input[value^=tuotteet]").css("color", "green");
   
   // ID column
   var id_col;
@@ -26,7 +37,7 @@ $(document).ready( function() {
     id_col = "tuoteID";
   else if ( table == "tuotteet_lomakkeet" )
     id_col = "OID";
-  else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" )
+  else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
     id_col = "Kohde_ID";
   else if ( table == "qpro_kohteet" )
     id_col = "KohdeID";
@@ -171,7 +182,7 @@ $(document).ready( function() {
             id_col = "tuoteID";
           else if ( table == "tuotteet_lomakkeet" )
             id_col = "OID";
-          else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" )
+          else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
             id_col = "Kohde_ID";
           else if ( table == "qpro_kohteet" )
             id_col = "KohdeID";

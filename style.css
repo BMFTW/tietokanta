@@ -1,6 +1,11 @@
-#tables td:first-child {
+#tables_vanhat, #tables_alataulut{
+  padding-right: 100px;
+}
+
+#tables_alataulut, #tables_uudet {
   vertical-align: top;
 }
+
 
 input[name="choose_table"] {
   text-align: center;

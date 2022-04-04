@@ -34,8 +34,8 @@ $haipro_tables = array(
   "haipro_kohde_laskut",
   "wpro_kohde_laskut",
   "tj_irtisanotut",
-  "tj_arkistokanta"
-
+  "tj_arkistokanta",
+  "haipro_pk_kohteet"
 );
 
 // Get columns
