@@ -37,7 +37,7 @@ $(document).ready( function() {
     id_col = "tuoteID";
   else if ( table == "tuotteet_lomakkeet" )
     id_col = "OID";
-  else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
+  else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "samra_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
     id_col = "Kohde_ID";
   else if ( table == "qpro_kohteet" )
     id_col = "KohdeID";
@@ -182,7 +182,7 @@ $(document).ready( function() {
             id_col = "tuoteID";
           else if ( table == "tuotteet_lomakkeet" )
             id_col = "OID";
-          else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
+          else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "samra_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
             id_col = "Kohde_ID";
           else if ( table == "qpro_kohteet" )
             id_col = "KohdeID";

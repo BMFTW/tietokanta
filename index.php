@@ -44,6 +44,7 @@
 							<label> <input type = "radio"  name = "table"  value = "potra_kohteet">       PotRa-kohteet          </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "qpro_kohteet">        QPro-kohteet           </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "rapro_kohteet">       RaPro-kohteet          </label> <br>
+							<label> <input type = "radio"  name = "table"  value = "samra_kohteet">       SamRa-kohteet          </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "spro_kohteet">        SPro-kohteet           </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "vakapro_kohteet">     VakaPro-kohteet        </label> <br>
 							<label> <input type = "radio"  name = "table"  value = "wb_kohteet">          Whistleblowing-kohteet </label> <br>
@@ -211,6 +212,7 @@
 							"potra_kohteet"             => "PotRa-kohteet",
 							"qpro_kohteet"              => "QPro-kohteet",
 							"rapro_kohteet"             => "RaPro-kohteet",
+							"samra_kohteet"             => "SamRa-kohteet",
 							"spro_kohteet"              => "SPro-kohteet",
 							"vakapro_kohteet"           => "VakaPro-kohteet",
 							"vpn_kohteet"               => "VPN-kohteet",

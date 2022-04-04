@@ -31,6 +31,7 @@ $haipro_tables = array(
   "wpro_kohteet",
   "potra_kohteet",
   "rapro_kohteet",
+  "samra_kohteet",
   "haipro_kohde_laskut",
   "wpro_kohde_laskut",
   "tj_irtisanotut",
