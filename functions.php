@@ -99,7 +99,7 @@ function generateTable($table, $columns) {
     $data .= "<tr>";
     foreach ( $columns as $column ) {
       $value = $row[$column];
-      $value = is_numeric($value) && strpos($value, '.') !== false ? number_format($value, 1, '.' , '') : $value;
+      $value = is_numeric($value) && strpos($value, ".") !== false ? number_format($value, 1, "." , "") : $value;
       $data .= "<td>" . $value . "</td>";
     }
     $data .= "</tr>";
@@ -322,6 +322,46 @@ function updateTable($table, $column, $value, $id_col, $id) {
 
   } 
 
+}
+
+// Get marks
+function getMarks($table) {
+
+  global $server, $user, $pwd, $haipro_tables;
+
+  $db = "haipro";
+
+  $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user, $pwd);
+
+  $sql = "SELECT marks FROM marks_tbl WHERE tbl = ?";
+
+  $stmt = $conn -> prepare($sql);
+
+  $stmt -> execute([$table]);
+
+  $marks = $stmt -> fetch();
+
+  $marks = $marks["marks"];
+  
+  return($marks); 
+  
+}
+
+// Save marks
+function saveMarks($table, $value) {
+
+  global $server, $user, $pwd, $haipro_tables;
+
+  $db = "haipro";
+
+  $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user, $pwd);
+
+  $sql = "UPDATE marks_tbl SET marks = ? WHERE tbl = ?";
+
+  $stmt = $conn -> prepare($sql);
+
+  $stmt -> execute([$value, $table]);
+  
 }
 
 // Insert row

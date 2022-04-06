@@ -3,6 +3,31 @@ $(document).ready( function() {
   // Table
   var table = $("#selected_table").text();
 
+  // Read marks
+  $("#get_marks").load("get_marks.php?table=" + table, function() {
+
+    var marks = $(this).text();
+
+    marks = marks == "" ? "[]" : marks;
+    marks = JSON.parse(marks);
+
+    for ( var i = 0; i < marks.length; i++ ) {
+      
+      id_val = marks[i][1];
+      column = marks[i][0];
+    
+      var n_id = $("#table").find("td:contains('" + id_val  + "')").closest("tr").index();
+      var p = $("th:contains(" + column + ")").index();
+
+      if ( p != "-1" )
+        $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked").css("background-color", "brown"); 
+
+    }
+
+  });
+
+  $("#get_marks, #save_marks").hide();
+
   // Center
   $("#logo").css("margin-top", "10px").css("margin-left", "750px").css("margin-bottom", "-5px");
   $("#header").css("margin-left", "625px").css("margin-bottom", "25px");
@@ -170,6 +195,31 @@ $(document).ready( function() {
 
           // Table
           var table = $("#selected_table").text();
+
+          // Read marks
+          $("#get_marks").load("get_marks.php?table=" + table, function() {
+
+            var marks = $(this).text();
+
+            marks = marks == "" ? "[]" : marks;
+            marks = JSON.parse(marks);
+
+            for ( var i = 0; i < marks.length; i++ ) {
+              
+              id_val = marks[i][1];
+              column = marks[i][0];
+            
+              var n_id = $("#table").find("td:contains('" + id_val  + "')").closest("tr").index();
+              var p = $("th:contains(" + column + ")").index();
+
+              if ( p != "-1" )
+                $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked").css("background-color", "brown"); 
+
+            }
+
+          });
+
+          $("#get_marks, #save_marks").hide();
 
           // ID column
           var id_col;
@@ -365,6 +415,55 @@ $(document).ready( function() {
               $td.removeAttr("contenteditable");
             else
               $td.find(":button").css("visibility", "visible").css('float', 'right');
+
+          });
+
+          // Mark cell with right mouse click
+          $(document).on("contextmenu", "td", function() {
+
+            var $td = $(this);
+
+            $("#get_marks").load("get_marks.php?table=" + table, function() {
+
+              var marks = $(this).text();
+
+              marks = marks == "" ? "[]" : marks;
+              marks = JSON.parse(marks);
+
+              var n = $td.closest("tr").index();
+              var p = $td.closest("td").index();
+              
+              var p_id = $("th:contains(" + id_col + ")").index();
+              
+              var column = $("#table").find("tr:eq(0)").find("th:eq(" + p + ")").text();
+              var id     = $("#table").find("tr:eq(" + n + ")").find("td:eq(" + p_id + ")").text().trim();
+
+              if ( $td.hasClass("marked") ) {
+
+                marks.push([column, id]);
+
+                $td.addClass("marked").css("background-color", "brown");
+
+                $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
+
+              } else {
+
+                for ( var i = 0; i < marks.length; i++ ) {
+
+                  if ( marks[i][0] == column && marks[i][1] == id )
+                    marks.splice(i, 1);
+
+                }
+
+                $td.removeClass("marked").css("background-color", "white");
+
+                $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
+
+              }
+
+            });
+
+            return false;
 
           });
 
@@ -591,6 +690,55 @@ $(document).ready( function() {
       $td.removeAttr("contenteditable");
     else
       $td.find(":button").css("visibility", "visible").css('float', 'right');
+
+  });
+
+  // Mark cell with right mouse click
+  $(document).on("contextmenu", "td", function() {
+
+    var $td = $(this);
+
+    $("#get_marks").load("get_marks.php?table=" + table, function() {
+
+      var marks = $(this).text();
+
+      marks = marks == "" ? "[]" : marks;
+      marks = JSON.parse(marks);
+
+      var n = $td.closest("tr").index();
+      var p = $td.closest("td").index();
+      
+      var p_id = $("th:contains(" + id_col + ")").index();
+      
+      var column = $("#table").find("tr:eq(0)").find("th:eq(" + p + ")").text();
+      var id     = $("#table").find("tr:eq(" + n + ")").find("td:eq(" + p_id + ")").text().trim();
+
+      if ( !$td.hasClass("marked") ) {
+
+        marks.push([column, id]);
+
+        $td.addClass("marked").css("background-color", "brown");
+
+        $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
+
+      } else {
+
+        for ( var i = 0; i < marks.length; i++ ) {
+
+          if ( marks[i][0] == column && marks[i][1] == id )
+            marks.splice(i, 1);
+
+        }
+
+        $td.removeClass("marked").css("background-color", "white");
+
+        $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
+
+      }
+
+    });
+
+    return false;
 
   });
 

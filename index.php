@@ -247,6 +247,8 @@
 						echo "<br>";
 
 						// Update data
+						echo "<p id = 'get_marks'>   </p>";
+						echo "<p id = 'save_marks'>  </p>";
 						echo "<p id = 'update_table'></p>";
 						echo "<p id = 'insert_row'>  </p>";
 						echo "<p id = 'delete_row'>  </p>";
