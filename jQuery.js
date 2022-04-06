@@ -369,13 +369,15 @@ $(document).ready( function() {
           });
 
           // Sort table
-          $("th").dblclick( function() {
+          $(document).on("contextmenu", "th", function() {
 
             var table = $(this).parents("table").eq(0);
             var rows = table.find("tr:gt(0)").toArray().sort(comparer($(this).index()));
             this.asc = !this.asc;
             if ( !this.asc ) { rows = rows.reverse(); }
             for ( var i = 0; i < rows.length; i++ ) { table.append(rows[i]); }
+
+            return false;
 
           });
 
@@ -644,13 +646,15 @@ $(document).ready( function() {
   });
   
   // Sort table
-  $("th").dblclick( function() {
+  $(document).on("contextmenu", "th", function() {
 
     var table = $(this).parents("table").eq(0);
     var rows = table.find("tr:gt(0)").toArray().sort(comparer($(this).index()));
     this.asc = !this.asc;
     if ( !this.asc ) { rows = rows.reverse(); }
     for ( var i = 0; i < rows.length; i++ ) { table.append(rows[i]); }
+
+    return false;
 
   });
 
