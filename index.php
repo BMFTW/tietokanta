@@ -242,7 +242,9 @@
 						echo "&nbsp;&nbsp;";
 
 						// Insturctions
-						echo "<img id = 'info' src = 'info.gif'>";
+						echo "<img id = 'info' src = 'info.gif'> ";
+
+						echo "<span style = 'color:red; font-size: 12px'> ( &#8592; Päivitetty 06.04.2022 )</span>";
 
 						echo "<br>";
 
