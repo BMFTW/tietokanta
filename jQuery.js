@@ -3,31 +3,6 @@ $(document).ready( function() {
   // Table
   var table = $("#selected_table").text();
 
-  // Read marks
-  $("#get_marks").load("get_marks.php?table=" + table, function() {
-
-    var marks = $(this).text();
-
-    marks = marks == "" ? "[]" : marks;
-    marks = JSON.parse(marks);
-
-    for ( var i = 0; i < marks.length; i++ ) {
-      
-      id_val = marks[i][1];
-      column = marks[i][0];
-    
-      var n_id = $("#table").find("td:contains('" + id_val  + "')").closest("tr").index();
-      var p = $("th:contains(" + column + ")").index();
-
-      if ( p != "-1" )
-        $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked").css("background-color", "brown"); 
-
-    }
-
-  });
-
-  $("#get_marks, #save_marks").hide();
-
   // Center
   $("#logo").css("margin-top", "10px").css("margin-left", "750px").css("margin-bottom", "-5px");
   $("#header").css("margin-left", "625px").css("margin-bottom", "25px");
@@ -70,6 +45,33 @@ $(document).ready( function() {
     id_col = "lasku_nro";
   else if ( table == "LOVe_asiakkaat" || table == "SAVe_asiakkaat" || table == "eloki_asiakkaat" )
     id_col = "Asiakas_ID";
+
+  // Read marks
+  $("#get_marks").load("get_marks.php?table=" + table, function() {
+
+    var marks = $(this).text();
+
+    marks = marks == "" ? "[]" : marks;
+    marks = JSON.parse(marks);
+
+    for ( var i = 0; i < marks.length; i++ ) {
+      
+      id_val = marks[i][1];
+      column = marks[i][0];
+
+      var p_id = $("th:contains(" + id_col + ")").index();
+      
+      var n_id = $("#table tr").find("td:eq(" + p_id + ")").filter( function() { return $(this).text().trim() == id_val;  } ).closest("tr").index();
+      var p = $("th:contains(" + column + ")").index();
+
+      if ( p != "-1" )
+        $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked").css("background-color", "brown"); 
+
+    }
+
+  });
+
+  $("#get_marks, #save_marks").hide();
 
   // Valitse kaikki
   $("input[name=chooseAll]").click( function() {
@@ -371,7 +373,7 @@ $(document).ready( function() {
           });
 
           // Sort table
-          $(document).on("contextmenu", "th", function() {
+          $(document).on("contextmenu", "#table th", function() {
 
             var table = $(this).parents("table").eq(0);
             var rows = table.find("tr:gt(0)").toArray().sort(comparer($(this).index()));
@@ -418,7 +420,7 @@ $(document).ready( function() {
           });
 
           // Mark cell with right mouse click
-          $(document).on("contextmenu", "td", function() {
+          $(document).on("contextmenu", "#table td", function() {
 
             var $td = $(this);
 
@@ -643,7 +645,7 @@ $(document).ready( function() {
   });
   
   // Sort table
-  $(document).on("contextmenu", "th", function() {
+  $(document).on("contextmenu", "#table th", function() {
 
     var table = $(this).parents("table").eq(0);
     var rows = table.find("tr:gt(0)").toArray().sort(comparer($(this).index()));
@@ -690,7 +692,7 @@ $(document).ready( function() {
   });
 
   // Mark cell with right mouse click
-  $(document).on("contextmenu", "td", function() {
+  $(document).on("contextmenu", "#table td", function() {
 
     var $td = $(this);
 
