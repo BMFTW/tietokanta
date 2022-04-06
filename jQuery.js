@@ -125,12 +125,13 @@ $(document).ready( function() {
     var txt = "";
   
     txt += "Ohjeet \n\n";
+    txt += "- Taulun sarakkeet voi järjestää aakkosjärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä \n\n";
     txt += "- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'NOTNULL' (suodattaa pois tyhjät arvot) tai 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu)\n\n";
-    txt += "- Taulun sarakkeet voi järjestää aakkosjärjestykseen tuplaklikkaamalla sarakkeen nimeä. Järjestystä voi muuttaa tuplaklikkaamalla sarakkeen nimeä uudelleen \n\n";
     txt += "- Sarakkeiden leveyttä voi muuttaa klikkaamalla sarakesolun oikeaa alakulmaa ja rahaamalla hiirtä nappi pohjassa \n\n";
     txt += "- Taulun solua klikkaamalla tekstiä voi muokata ja tallenusnappia painamalla tallentaa tiedot tietokantaan. Jos tallennus onnistui, niin solun taustaväri muuttuu vihreäksi ja punaiseksi, jos tallennus epäonnistui \n\n";
-    txt += "- Taulun rivejä voi korostaa punaisella värillä tuplaklikkaamalla rivin mitä tahansa solua \n\n";
-    txt += "- Tauluun voi lisätä uuden rivin taulun alla olevaa Lisää rivi -nappia painamalla \n\n";
+    txt += "- Taulun soluihin voi jättää huomiovärin klikkaamalla solua hiiren oikealla napilla \n\n";
+    txt += "- Tauluun voi lisätä rivejä painamalla taulun alla olevaa Lisää rivi -nappia \n\n";
+    txt += "- Taulun rivejä voi poistaa painamalla taulun alla olevaa Poista rivi -nappia \n\n";
   
     alert(txt);
   
@@ -291,19 +292,20 @@ $(document).ready( function() {
 
           // Info
           $("#info").click( function() {
-
+                
             var txt = "";
-
+          
             txt += "Ohjeet \n\n";
+            txt += "- Taulun sarakkeet voi järjestää aakkosjärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä \n\n";
             txt += "- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'NOTNULL' (suodattaa pois tyhjät arvot) tai 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu)\n\n";
-            txt += "- Taulun sarakkeet voi järjestää aakkosjärjestykseen tuplaklikkaamalla sarakkeen nimeä. Järjestystä voi muuttaa tuplaklikkaamalla sarakkeen nimeä uudelleen \n\n";
             txt += "- Sarakkeiden leveyttä voi muuttaa klikkaamalla sarakesolun oikeaa alakulmaa ja rahaamalla hiirtä nappi pohjassa \n\n";
             txt += "- Taulun solua klikkaamalla tekstiä voi muokata ja tallenusnappia painamalla tallentaa tiedot tietokantaan. Jos tallennus onnistui, niin solun taustaväri muuttuu vihreäksi ja punaiseksi, jos tallennus epäonnistui \n\n";
-            txt += "- Taulun rivejä voi korostaa punaisella värillä tuplaklikkaamalla rivin mitä tahansa solua \n\n";
-            txt += "- Tauluun voi lisätä uuden rivin taulun alla olevaa Lisää rivi -nappia painamalla \n\n";
-
+            txt += "- Taulun soluihin voi jättää huomiovärin klikkaamalla solua hiiren oikealla napilla \n\n";
+            txt += "- Tauluun voi lisätä rivejä painamalla taulun alla olevaa Lisää rivi -nappia \n\n";
+            txt += "- Taulun rivejä voi poistaa painamalla taulun alla olevaa Poista rivi -nappia \n\n";
+          
             alert(txt);
-
+          
           })
 
           // Show filter
