@@ -395,11 +395,6 @@ $(document).ready( function() {
 
           function getCellValue(row, index) { return $(row).children("td").eq(index).text(); }
 
-          // Highlight rows
-          $("#table tr").dblclick( function() {
-            $(this).toggleClass("highlight");
-          });
-
           // Click table cell
           $(document).on("click", "td", function (event) {
 
@@ -671,11 +666,6 @@ $(document).ready( function() {
   }
 
   function getCellValue(row, index) { return $(row).children("td").eq(index).text(); }
-  
-  // Highlight rows
-  $("#table tr").dblclick( function() {
-    $(this).toggleClass("highlight");
-  });
 
   // Click table cell
   $(document).on("click", "td", function (event) {
