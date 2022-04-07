@@ -137,7 +137,15 @@ $(document).ready( function() {
   
     alert(txt);
   
-  })
+  });
+
+  // Column infos
+  if ( table == "haipro_asiakkaat" ) 
+    $("th:contains(pt_kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
+  if ( table == "wpro_kohteet" )
+    $("th:contains(tt_kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
+  if ( table == "spro_kohteet" )
+    $("th:contains(kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
   
   // Show filter
   $(document).on("click", "th", function(event) {
@@ -561,21 +569,17 @@ $(document).ready( function() {
           });
 
           // Click outside table
-          $(document).click(function (event) {
+          $(document).click( function (event) {
 
             var $target = $(event.target);
 
             if ( !$target.closest("table").length ) {
 
-              $(":button").not(".filter_button, #addRow, #deleteRow").css("visibility", "hidden");
+              $(":button").not("#addRow, #deleteRow").css("visibility", "hidden");
+              $(".filter_text, .filter_button").remove();
 
-              $("th").each( function () {
-                var column = $(this).text().replace(" Ok", "");
-                $(this).empty();
-                $(this).html("<div>" + column + "</div>");
-              });
             }
-
+            
           });
 
           // Add row
@@ -833,19 +837,15 @@ $(document).ready( function() {
   });
 
   // Click outside table
-  $(document).click(function (event) {
+  $(document).click( function (event) {
 
     var $target = $(event.target);
 
     if ( !$target.closest("table").length ) {
 
-      $(":button").not(".filter_button, #addRow, #deleteRow").css("visibility", "hidden");
+      $(":button").not("#addRow, #deleteRow").css("visibility", "hidden");
+      $(".filter_text, .filter_button").remove();
 
-      $("th").each( function () {
-        var column = $(this).text().replace(" Ok", "");
-        $(this).empty();
-        $(this).html("<div>" + column + "</div>");
-      });
     }
     
   });
