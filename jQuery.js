@@ -7,6 +7,7 @@ $(document).ready( function() {
   $("#logo").css("margin-top", "10px").css("margin-left", "750px").css("margin-bottom", "-5px");
   $("#header").css("margin-left", "625px").css("margin-bottom", "25px");
   $("#tables").css("margin-left", "500px");
+  $("#tables label, #valitse_tiedot_txt, label:contains('Valitse kaikki'), #variables label").css("white-space", "nowrap");
   $("#tables_alataulut").css("margin-top", "100px");
   $("#valitse_tiedot").css("margin-top", "10px").css("margin-left", "765px");
   $("#valitse_tiedot_txt").css("margin-left", "10px");

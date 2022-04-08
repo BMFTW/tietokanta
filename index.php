@@ -164,12 +164,12 @@
 						echo "<br><br>";
 
 						// Choose all
-						echo "<label> <input type = 'checkbox' name = 'chooseAll'> Valitse kaikki </label>";
+						echo "<label> <input type = 'checkbox' id = 'chooseAll' name = 'chooseAll'> Valitse kaikki </label>";
 
 						echo "<br><br>";
 
 						// Checkboxes
-						echo "<form name = 'variables' method = 'post'>";
+						echo "<form id = 'variables' method = 'post'>";
 
 						foreach ( $columns as $column ) {
 							echo "<label> <input type = 'checkbox' name = 'selected_columns[]' value = '" . $column . "'>" . $column . "</label>";
