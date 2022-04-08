@@ -147,6 +147,31 @@ $(document).ready( function() {
     $("th:contains(tt_kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
   if ( table == "spro_kohteet" )
     $("th:contains(kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
+
+  // Highlight columns
+  $(document).on({
+
+    mouseenter: function() {
+
+      var n = $(this).index();
+
+      $("#table tr").each( function() { 
+        $(this).find("td:eq(" + n + ")").addClass("highlight");
+      });
+
+    },
+
+    mouseleave: function() {
+      
+      var n = $(this).index();
+
+      $("#table tr").each( function() {
+        $(this).find("td:eq(" + n + ")").removeClass("highlight");
+      });
+
+    }
+
+  }, "th");
   
   // Show filter
   $(document).on("click", "th", function(event) {
