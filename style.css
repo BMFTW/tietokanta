@@ -50,6 +50,10 @@ input[type="button"]:not(#addRow):not(#deleteRow) {
 .w3 tr:nth-child(even) { background-color: #f2f2f2; }
 .w3 tr:hover           { background-color: #ddd; }
 
+.marked {
+  background-color: brown;
+}
+
 .dropbtn {
   background-color: #4CAF50;
   color: white;

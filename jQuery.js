@@ -66,7 +66,7 @@ $(document).ready( function() {
       var p = $("th:contains(" + column + ")").index();
 
       if ( n_id != "-1" && p != "-1" )
-        $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked").css("background-color", "brown"); 
+        $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked"); 
 
     }
 
@@ -247,7 +247,7 @@ $(document).ready( function() {
               var p = $("th:contains(" + column + ")").index();
 
               if ( n_id != "-1" && p != "-1" )
-                $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked").css("background-color", "brown"); 
+                $("#table").find("tr:eq(" + n_id + ")").find("td:eq(" + p + ")").addClass("marked"); 
 
             }
 
@@ -454,7 +454,7 @@ $(document).ready( function() {
 
                 marks.push([column, id]);
 
-                $td.addClass("marked").css("background-color", "brown");
+                $td.addClass("marked");
 
                 $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
 
@@ -467,7 +467,7 @@ $(document).ready( function() {
 
                 }
 
-                $td.removeClass("marked").css("background-color", "white");
+                $td.removeClass("marked");
 
                 $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
 
@@ -722,7 +722,7 @@ $(document).ready( function() {
 
         marks.push([column, id]);
 
-        $td.addClass("marked").css("background-color", "brown");
+        $td.addClass("marked");
 
         $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
 
@@ -735,7 +735,7 @@ $(document).ready( function() {
 
         }
 
-        $td.removeClass("marked").css("background-color", "white");
+        $td.removeClass("marked");
 
         $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
 
