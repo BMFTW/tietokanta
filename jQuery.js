@@ -130,7 +130,7 @@ $(document).ready( function() {
   
     txt += "Ohjeet \n\n";
     txt += "- Taulun sarakkeet voi järjestää aakkos-/numerojärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä \n\n";
-    txt += "- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'onarvo' (suodattaa pois tyhjät arvot), 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu) tai 'tyhjä' (rivit, joissa kyseisen sarakkeen arvo on tyhjä)\n\n";
+    txt += "- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'onarvo' (suodattaa pois tyhjät arvot), 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu), 'tyhjä' (rivit, joissa kyseisen sarakkeen arvo on tyhjä) tai 'huom' (rivit, joissa sarakkeen arvossa on huomioväri)\n\n";
     txt += "- Sarakkeiden leveyttä voi muuttaa klikkaamalla sarakesolun oikeaa alakulmaa ja rahaamalla hiirtä nappi pohjassa \n\n";
     txt += "- Taulun solua klikkaamalla tekstiä voi muokata ja tallenusnappia painamalla tallentaa tiedot tietokantaan. Jos tallennus onnistui, niin solun taustaväri muuttuu vihreäksi ja punaiseksi, jos tallennus epäonnistui \n\n";
     txt += "- Taulun soluihin voi jättää huomiovärin klikkaamalla solua hiiren oikealla napilla \n\n";
@@ -195,7 +195,7 @@ $(document).ready( function() {
 
     var col_num   = $(this).closest("th").index();
     var criterion = $(this).val().toLowerCase().trim();
-    var value;
+    var $td, value;
 
     if ( criterion != "" ) {
       $(".filter_text").not(this).val("").keyup().hide();
@@ -207,12 +207,14 @@ $(document).ready( function() {
 
     $("#table tr:not(:first)").each( function() {
 
-      value = $(this).find("td:eq(" + col_num + ")").text().toLowerCase().trim();
+      $td   = $(this).find("td:eq(" + col_num + ")");
+      value = $td.text().toLowerCase().trim();
 
       if      ( value.includes(criterion) )                                                                    $(this).show();
-      else if ( criterion == "tyhjä"  && value == "" )                                                         $(this).show();
-      else if ( criterion == "onarvo" && value != "" )                                                         $(this).show();
-      else if ( /^not /.test(criterion) && !value.includes(criterion.replace("not ", "")) )                    $(this).show();
+      else if ( criterion == "tyhjä"      && value == "" )                                                     $(this).show();
+      else if ( criterion == "onarvo"     && value != "" )                                                     $(this).show();
+      else if ( criterion == "huom"       && $td.hasClass("marked") )                                          $(this).show();
+      else if ( /^not /.test(criterion)   && !value.includes( criterion.replace("not ", "") ) )                $(this).show();
       else if ( criterion.includes("<")   && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
       else if ( criterion.includes("<=")  && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
       else if ( criterion.includes(">")   && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
