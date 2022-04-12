@@ -335,7 +335,7 @@ $(document).ready( function() {
     var id     = $("#table").find("tr:eq(" + n + ")").find("td:eq(" + p_id + ")").text();
   
     table  = table.trim().replace(/\s+/g, "<space>");
-    column = column.trim().replace(/\s+/g, "<space>").replace(/<space>Ok$/, "");
+    column = column.trim().replace("( ? )", "").replace(/\s+/g, "<space>").replace(/<space>Ok$/, "");
     value  = value.trim().replace(/\s+/g, "<space>").replace(/Valitse.+/, "");
     id     = id.trim().replace(/\s+/g, "<space>");
 
