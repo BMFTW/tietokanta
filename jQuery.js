@@ -210,7 +210,7 @@ $(document).ready( function() {
       $td   = $(this).find("td:eq(" + col_num + ")");
       value = $td.text().toLowerCase().trim();
 
-      if      ( value.includes(criterion) )                                                                    $(this).show();
+      if      ( value.includes(criterion) )                                                                   $(this).show();
       else if ( criterion == "tyhjä"     && value == "" )                                                     $(this).show();
       else if ( criterion == "onarvo"    && value != "" )                                                     $(this).show();
       else if ( criterion == "huom"      && $td.hasClass("marked") )                                          $(this).show();
