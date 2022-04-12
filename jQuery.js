@@ -205,20 +205,20 @@ $(document).ready( function() {
       $(this).closest("th").css("background-color", "#4CAF50");
     }
 
-    $("#table tr:not(:first)").each( function() {
+    $("#table tr:gt(0)").each( function() {
 
       $td   = $(this).find("td:eq(" + col_num + ")");
       value = $td.text().toLowerCase().trim();
 
       if      ( value.includes(criterion) )                                                                    $(this).show();
-      else if ( criterion == "tyhjä"      && value == "" )                                                     $(this).show();
-      else if ( criterion == "onarvo"     && value != "" )                                                     $(this).show();
-      else if ( criterion == "huom"       && $td.hasClass("marked") )                                          $(this).show();
-      else if ( /^not /.test(criterion)   && !value.includes( criterion.replace("not ", "") ) )                $(this).show();
-      else if ( criterion.includes("<")   && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else if ( criterion.includes("<=")  && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else if ( criterion.includes(">")   && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else if ( criterion.includes(">=")  && parseFloat(value) >= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
+      else if ( criterion == "tyhjä"     && value == "" )                                                     $(this).show();
+      else if ( criterion == "onarvo"    && value != "" )                                                     $(this).show();
+      else if ( criterion == "huom"      && $td.hasClass("marked") )                                          $(this).show();
+      else if ( /^not /.test(criterion)  && !value.includes( criterion.replace("not ", "") ) )                $(this).show();
+      else if ( criterion.includes("<")  && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
+      else if ( criterion.includes("<=") && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
+      else if ( criterion.includes(">")  && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
+      else if ( criterion.includes(">=") && parseFloat(value) >= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
       else
         $(this).hide();
 
