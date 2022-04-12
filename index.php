@@ -21,7 +21,7 @@
 	<body>
 	
 			<!-- Logo -->
-			<a href = "https://www.awanic.fi/tietokanta/"><img id = "logo" src = "logo.png"></a>
+			<a href = "https://awanic.fi/tietokanta/"><img id = "logo" src = "logo.png"></a>
 
 			<!-- Header -->
 			<img id = "header" src = "header.png"></h1> <br>
