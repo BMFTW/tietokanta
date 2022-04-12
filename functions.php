@@ -120,8 +120,6 @@ function generateTable($table, $columns) {
 
   $html .= "</table>";
 
-  $html .= "<p id = 'sql' class = 'hidden'>$sql</p>";
-
   // Check malicious code
   if ( strpos($html, "<script") !== false ) {
     die("<p style = 'color: red;'>Syötteessä vahingollista koodia, ohjelman suoritus keskeytetty</p>");

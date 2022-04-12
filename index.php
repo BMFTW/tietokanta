@@ -255,9 +255,6 @@
 						echo "<p id = 'insert_row'>  </p>";
 						echo "<p id = 'delete_row'>  </p>";
 
-						// Filtered table
-						echo "<div id = 'new_table'></div>";
-
 						// Generate table
 						if ( $skip_column_selection ) {
 							$html = generateTable($table, "*");
