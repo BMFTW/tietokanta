@@ -182,20 +182,20 @@ $(document).ready( function() {
 
     mouseenter: function() {
 
-      var n = $(this).index();
+      var col_num = $(this).index();
 
       $("#table tr").each( function() { 
-        $(this).find("td:eq(" + n + ")").addClass("highlight");
+        $(this).find("td:eq(" + col_num + ")").addClass("highlight");
       });
 
     },
 
     mouseleave: function() {
       
-      var n = $(this).index();
+      var col_num = $(this).index();
 
       $("#table tr").each( function() {
-        $(this).find("td:eq(" + n + ")").removeClass("highlight");
+        $(this).find("td:eq(" + col_num + ")").removeClass("highlight");
       });
 
     }
