@@ -191,11 +191,15 @@ $(document).ready( function() {
   })
 
   // Filter rows
+  var $table_rows = $("#table tr:gt(0)");
+
+  $table_rows.data("filter", filter_array);
+
   $(document).on("keyup", ".filter_text", function() {
 
     var col_num   = $(this).closest("th").index();
     var criterion = $(this).val().toLowerCase().trim();
-    var $td, value;
+    var $tr, $td, value;
 
     if ( criterion != "" ) {
       $(".filter_text").not(this).val("").keyup().hide();
@@ -205,22 +209,22 @@ $(document).ready( function() {
       $(this).closest("th").css("background-color", "#4CAF50");
     }
 
-    $("#table tr:gt(0)").each( function() {
+    $table_rows.each( function() {
 
-      $td   = $(this).find("td:eq(" + col_num + ")");
+      $tr   = $(this);
+      $td   = $tr.find("td:eq(" + col_num + ")");
       value = $td.text().toLowerCase().trim();
 
-      if      ( value.includes(criterion) )                                                                   $(this).show();
-      else if ( criterion == "tyhjä"     && value == "" )                                                     $(this).show();
-      else if ( criterion == "onarvo"    && value != "" )                                                     $(this).show();
-      else if ( criterion == "huom"      && $td.hasClass("marked") )                                          $(this).show();
-      else if ( /^not /.test(criterion)  && !value.includes( criterion.replace("not ", "") ) )                $(this).show();
-      else if ( criterion.includes("<")  && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else if ( criterion.includes("<=") && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else if ( criterion.includes(">")  && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else if ( criterion.includes(">=") && parseFloat(value) >= parseFloat( criterion.replace(/\D/g, "") ) ) $(this).show();
-      else
-        $(this).hide();
+      if      ( value.includes(criterion) )                                                                   $tr.show();
+      else if ( criterion == "tyhjä"     && value == "" )                                                     $tr.show();
+      else if ( criterion == "onarvo"    && value != "" )                                                     $tr.show();
+      else if ( criterion == "huom"      && $td.hasClass("marked") )                                          $tr.show();
+      else if ( /^not /.test(criterion)  && !value.includes( criterion.replace("not ", "") ) )                $tr.show();
+      else if ( criterion.includes("<")  && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
+      else if ( criterion.includes("<=") && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
+      else if ( criterion.includes(">")  && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
+      else if ( criterion.includes(">=") && parseFloat(value) >= parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
+      else                                                                                                    $tr.hide();
 
     });
 
