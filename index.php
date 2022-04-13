@@ -21,7 +21,7 @@
 	<body>
 	
 			<!-- Logo -->
-			<a href = "https://www.awanic.fi/tietokanta/"><img id = "logo" src = "logo.png"></a>
+			<a href = "https://awanic.fi/tietokanta/"><img id = "logo" src = "logo.png"></a>
 
 			<!-- Header -->
 			<img id = "header" src = "header.png"></h1> <br>
@@ -244,7 +244,7 @@
 						// Insturctions
 						echo "<img id = 'info' src = 'info.gif'> ";
 
-						echo "<span style = 'color:red; font-size: 12px'> ( &#8592; Päivitetty 06.04.2022 )</span>";
+						echo "<span style = 'color:red; font-size: 12px'> ( &#8592; Päivitetty 12.04.2022 )</span>";
 
 						echo "<br>";
 
@@ -254,9 +254,6 @@
 						echo "<p id = 'update_table'></p>";
 						echo "<p id = 'insert_row'>  </p>";
 						echo "<p id = 'delete_row'>  </p>";
-
-						// Filtered table
-						echo "<div id = 'new_table'></div>";
 
 						// Generate table
 						if ( $skip_column_selection ) {

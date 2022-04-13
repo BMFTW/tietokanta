@@ -120,94 +120,6 @@ function generateTable($table, $columns) {
 
   $html .= "</table>";
 
-  $html .= "<p id = 'sql' class = 'hidden'>$sql</p>";
-
-  // Check malicious code
-  if ( strpos($html, "<script") !== false ) {
-    die("<p style = 'color: red;'>Syötteessä vahingollista koodia, ohjelman suoritus keskeytetty</p>");
-  }
-
-  // Return table
-  return($html);
-    
-}
-
-// Generate filtered table
-function generate_filtered_table($sql) {
-
-  global $server, $user, $pwd, $haipro_tables;
-
-  $sql = str_replace("<temp>", "", $sql);
-
-  // Extract table
-  $pattern = "/(?<=FROM )[^\s]+/";
-  preg_match($pattern, $sql, $table);
-  $table = $table[0];
-
-   // Extract columns
-  $pattern = "/(?<=SELECT ).+(?= FROM)/";
-  preg_match($pattern, $sql, $columns);
-  $columns = $columns[0];
-  $columns = str_replace("[", "", $columns);
-  $columns = str_replace("]", "", $columns);
-  $columns = explode(", ", $columns);
-
-  $html = "<table>";
-
-  // Headers
-  $headers = "<tr>";
-  foreach ( $columns as $column ) {
-    $headers .= "<th>" . $column . "</th>";
-  }
-  $headers .= "</tr>";
-
-  $html .= $headers;
-
-  $columns = preg_replace("/^/", "[", $columns);
-  $columns = preg_replace("/$/", "]", $columns);
-
-  $db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
-
-  preg_match("/ ORDER.+(?= (WHERE|AND))/", $sql, $order_by);
-  $order_by = $order_by[0];
-  $sql = str_replace($order_by, "", $sql);
-  $sql = $sql . $order_by;
-
-  $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user, $pwd);
-  $rows = $conn -> query($sql);
-
-  $columns = preg_replace("/^\[/", "", $columns);
-  $columns = preg_replace("/\]$/", "", $columns);
-
-  // Data
-  $data = "";
-  foreach ( $rows as $row ) {
-    $data .= "<tr>";
-    foreach ( $columns as $column ) {
-      $value = $row[$column];
-      $value = is_numeric($value) && strpos($value, '.') !== false ? number_format($value, 1, '.' , '') : $value;
-      $data .= "<td>" . $value . "</td>";
-    }
-    $data .= "</tr>";
-  }
-
-  $html .= $data;
-
-  // Edit table
-  $html = str_replace("<table>", "<table border = '1' id = 'table' class = 'w3'>", $html);
-  $html = str_replace("<th>", "<th><div>", $html);
-  $html = str_replace("</th>", "</div></th>", $html);
-  $html = str_replace("<td", "<td contenteditable = 'true'", $html);
-  $html = str_replace("</td>", "<input type = 'button' class = 'save' value = 'Tallenna'></td>", $html);
-  $html = str_replace("</td>", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>", $html);
-  $html = str_replace('style="text-align: right;"', "", $html);
-  $html = preg_replace("/>\s+<\/td>/", ">&nbsp;</td>", $html);
-  $html = preg_replace("/\s+/", " ", $html);
-
-  $html .= "</table>";
-
-  $html .= "<p id = 'sql' class = 'hidden'>$sql</p>";
-
   // Check malicious code
   if ( strpos($html, "<script") !== false ) {
     die("<p style = 'color: red;'>Syötteessä vahingollista koodia, ohjelman suoritus keskeytetty</p>");
@@ -254,15 +166,22 @@ function updateTable($table, $column, $value, $id_col, $id) {
   $column = str_replace("]", "", $column);
 
   // Data transfer between tables
-  if ( $table == "haipro_asiakkaat" && ( $column == "pk" || $column == "vpn" ) ) {
+  $data_transfer = false;
 
-    if ( $table == "haipro_asiakkaat" )
-        $tuote_taulu = "HaiPro";
+  if ( $table == "haipro_asiakkaat" && ( $column == "pk" || $column == "vpn" || $column == "pos_kayttajamaara" || $column == "eki_kayttajamaara" ) )
+    $data_transfer = true;
+  else if ( $table == "wpro_kohteet" && ( $column == "pos_kayttajamaara" || $column == "eki_kayttajamaara" ) )
+    $data_transfer = true;
+
+  if ( $data_transfer ) {
 
     if ( $value != "" ) {
 
-        if ( $column == "pk"  ) $sql_exists = "SELECT COUNT(*) FROM haipro_pk_kohteet WHERE Kohde_ID = ?";
-        if ( $column == "vpn" ) $sql_exists = "SELECT COUNT(*) FROM vpn_kohteet WHERE Kohde_ID = ?";
+        if      ( $column == "pk"  )               $sql_exists = "SELECT COUNT(*) FROM haipro_pk_kohteet WHERE Kohde_ID = ?";
+        else if ( $column == "vpn" )               $sql_exists = "SELECT COUNT(*) FROM vpn_kohteet       WHERE Kohde_ID = ?";
+        else if ( $column == "pos_kayttajamaara" ) $sql_exists = "SELECT COUNT(*) FROM posipro_kohteet   WHERE Kohde_ID = ?";
+        else if ( $column == "eki_kayttajamaara" ) $sql_exists = "SELECT COUNT(*) FROM eki_kohteet       WHERE Kohde_ID = ?";
+
         $stmt = $conn -> prepare($sql_exists);
         $stmt -> execute([$id]);
         $count = $stmt -> fetch();
@@ -270,10 +189,29 @@ function updateTable($table, $column, $value, $id_col, $id) {
 
         if ( $count == "0" ) {
 
-            if ( $column == "pk" )
+            if ( $table == "haipro_asiakkaat" ) {
+
+              $tuote_taulu = "HaiPro";
+
+              if ( $column == "pk" )
                 $sql = "INSERT INTO haipro_pk_kohteet ( Kohde_ID, kohde_nimi, tuote_taulu, kayttoonotto, mobiililinkki, tallentaja, Lisatiedot ) SELECT Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot FROM haipro_asiakkaat WHERE $id_col = ?";
-            if ( $column == "vpn" )
+              else if ( $column == "vpn" )
                 $sql = "INSERT INTO vpn_kohteet ( Kohde_ID, kohde_nimi, tuote_taulu, kayttoonotto, mobiililinkki, tallentaja, Lisatiedot ) SELECT Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot FROM haipro_asiakkaat WHERE $id_col = ?";
+              else if ( $column == "pos_kayttajamaara" )
+                $sql = "INSERT INTO posipro_kohteet ( Kohde_ID, Kohde_nimi, Tuote_taulu, Kayttoonotto, mobiililinkki, tallentaja, Lisatiedot ) SELECT Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot FROM haipro_asiakkaat WHERE $id_col = ?";
+              else if ( $column == "eki_kayttajamaara" )
+                $sql = "INSERT INTO eki_kohteet ( Kohde_ID, Kohde_nimi, Tuote_taulu, Kayttoonotto, mobiililinkki, tallentaja, Lisatiedot ) SELECT Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot FROM haipro_asiakkaat WHERE $id_col = ?";
+
+            } else if ( $table == "wpro_kohteet" ) {
+
+              $tuote_taulu = "WPro";
+
+              if ( $column == "pos_kayttajamaara" )
+                $sql = "INSERT INTO posipro_kohteet ( Kohde_ID, Kohde_nimi, Tuote_taulu, Kayttoonotto, mobiililinkki, tallentaja, Lisatiedot ) SELECT Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot FROM wpro_kohteet WHERE $id_col = ?";
+              else if ( $column == "eki_kayttajamaara" )
+                $sql = "INSERT INTO eki_kohteet ( Kohde_ID, Kohde_nimi, Tuote_taulu, Kayttoonotto, mobiililinkki, tallentaja, Lisatiedot ) SELECT Kohde_ID, Kohde_nimi, '$tuote_taulu', NULL, mobiililinkki, Tallentaja, lisatiedot FROM wpro_kohteet WHERE $id_col = ?";
+
+            }
             
             try {
 
@@ -283,10 +221,10 @@ function updateTable($table, $column, $value, $id_col, $id) {
 
             } catch ( PDOException $e ) {
 
-              if ( $column == "pk" )
-                  $taulu = "PK-kohteet";
-              if ( $column == "vpn" )
-                  $taulu = "VPN-kohteet";
+              if      ( $column == "pk" )                $taulu = "PK-kohteet";
+              else if ( $column == "vpn" )               $taulu = "VPN-kohteet";
+              else if ( $column == "pos_kayttajamaara" ) $taulu = "PosiPro-kohteet";
+              else if ( $column == "eki_kayttajamaara" ) $taulu = "EKI-kohteet";
 
               echo "<b>Tietojen lisäys tauluun $taulu epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
           
@@ -298,8 +236,10 @@ function updateTable($table, $column, $value, $id_col, $id) {
 
     else {
 
-      if ( $column == "pk"  ) $sql = "DELETE FROM haipro_pk_kohteet WHERE Kohde_ID = ?";
-      if ( $column == "vpn" ) $sql = "DELETE FROM vpn_kohteet WHERE Kohde_ID = ?";
+      if      ( $column == "pk"  )               $sql = "DELETE FROM haipro_pk_kohteet WHERE Kohde_ID = ?";
+      else if ( $column == "vpn" )               $sql = "DELETE FROM vpn_kohteet       WHERE Kohde_ID = ?";
+      else if ( $column == "pos_kayttajamaara" ) $sql = "DELETE FROM posipro_kohteet   WHERE Kohde_ID = ?";
+      else if ( $column == "eki_kayttajamaara" ) $sql = "DELETE FROM eki_kohteet       WHERE Kohde_ID = ?";
       
       try {
 
@@ -309,10 +249,10 @@ function updateTable($table, $column, $value, $id_col, $id) {
 
       } catch ( PDOException $e ) {
 
-        if ( $column == "pk" )
-            $taulu = "PK-kohteet";
-        if ( $column == "vpn" )
-            $taulu = "VPN-kohteet";
+        if      ( $column == "pk" )                $taulu = "PK-kohteet";
+        else if ( $column == "vpn" )               $taulu = "VPN-kohteet";
+        else if ( $column == "pos_kayttajamaara" ) $taulu = "PosiPro-kohteet";
+        else if ( $column == "eki_kayttajamaara" ) $taulu = "EKI-kohteet";
 
         echo "<b>Tietojen poisto taulusta $taulu epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
     
