@@ -192,39 +192,81 @@ $(document).ready( function() {
 
   // Filter rows
   var $table_rows = $("#table tr:gt(0)");
+  var num_cols    = $("#table th").length;
+  
+  $(document).on("keyup", ".filter_text", function(e) {
 
-  $(document).on("keyup", ".filter_text", function() {
+    var code  = ( e.keyCode || e.which );
+    var codes = [ 9, 16, 17, 18, 37, 38, 39, 40, 144 ];
+    if ( codes.includes(code) )
+      return;
 
-    var col_num   = $(this).closest("th").index();
-    var criterion = $(this).val().toLowerCase().trim();
-    var $tr, $td, value;
+    var filter = "1".repeat(num_cols);
 
-    if ( criterion != "" ) {
-      $(".filter_text").not(this).val("").keyup().hide();
-      $(this).closest("th").css("background-color", "blue");
-    }
-    else {
-      $(this).closest("th").css("background-color", "#4CAF50");
-    }
+    $table_rows.data("filter", filter);
 
-    $table_rows.each( function() {
+    $(".filter_text").each( function() {
 
-      $tr   = $(this);
-      $td   = $tr.find("td:eq(" + col_num + ")");
-      value = $td.text().toLowerCase().trim();
+      var col_num   = $(this).closest("th").index();
+      var criterion = $(this).val().toLowerCase().trim();
+      var $tr, $td, value;
 
-      if      ( value.includes(criterion) )                                                                   $tr.show();
-      else if ( criterion == "tyhjä"     && value == "" )                                                     $tr.show();
-      else if ( criterion == "onarvo"    && value != "" )                                                     $tr.show();
-      else if ( criterion == "huom"      && $td.hasClass("marked") )                                          $tr.show();
-      else if ( /^not /.test(criterion)  && !value.includes( criterion.replace("not ", "") ) )                $tr.show();
-      else if ( criterion.includes("<")  && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
-      else if ( criterion.includes("<=") && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
-      else if ( criterion.includes(">")  && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
-      else if ( criterion.includes(">=") && parseFloat(value) >= parseFloat( criterion.replace(/\D/g, "") ) ) $tr.show();
-      else                                                                                                    $tr.hide();
+      if ( criterion != "" )
+        $(this).closest("th").css("background-color", "blue");      
+      else
+        $(this).closest("th").css("background-color", "#4CAF50");
+
+      $table_rows.each( function() {
+
+        $tr    = $(this);
+        $td    = $tr.find("td:eq(" + col_num + ")");
+        value  = $td.text().toLowerCase().trim();
+        filter = $tr.data("filter");
+
+        if      ( value.includes(criterion) )                                                                   { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion == "tyhjä"     && value == "" )                                                     { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion == "onarvo"    && value != "" )                                                     { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion == "huom"      && $td.hasClass("marked") )                                          { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( /^not /.test(criterion)  && !value.includes( criterion.replace("not ", "") ) )                { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion.includes("<")  && parseFloat(value) <  parseFloat( criterion.replace(/\D/g, "") ) ) { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion.includes("<=") && parseFloat(value) <= parseFloat( criterion.replace(/\D/g, "") ) ) { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion.includes(">")  && parseFloat(value) >  parseFloat( criterion.replace(/\D/g, "") ) ) { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else if ( criterion.includes(">=") && parseFloat(value) >= parseFloat( criterion.replace(/\D/g, "") ) ) { filter = replaceCharAt( filter, col_num, 1 ); $tr.data("filter", filter); }
+        else                                                                                                    { filter = replaceCharAt( filter, col_num, 0 ); $tr.data("filter", filter); }
+
+        if ( $tr.data("filter").split("").every( e => e == "1" ) )
+          $tr.show();
+        else
+          $tr.hide();
+
+      });
 
     });
+
+  });
+
+  function replaceCharAt( str, i, replacement ) {
+
+    var output;
+    
+    output    = str.split("");
+    output[i] = replacement;
+    output    = output.join("");
+
+    return output;
+
+  }
+
+  // Press ESC to remove filters
+  $(document).keyup( function(e) {
+
+    if ( e.key === "Escape" ) {
+
+      $(".filter_text").each( function() {
+        $(this).val("").keyup().remove();
+      });
+
+    }
 
   });
   
