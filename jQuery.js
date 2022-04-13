@@ -148,7 +148,6 @@ $(document).ready( function() {
     $("th:contains(tt_kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
   if ( table == "spro_kohteet" )
     $("th:contains(kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
-<<<<<<< HEAD
 
   // Highlight columns
   $(document).on({
@@ -177,8 +176,6 @@ $(document).ready( function() {
   
   // Show filter
   $(document).on("click", "th", function(event) {
-=======
->>>>>>> new_filtering
 
   // Highlight columns
   $(document).on({
@@ -203,7 +200,9 @@ $(document).ready( function() {
 
     }
 
-  }, "th");
+    }, "th");
+
+  });
   
   // Click column
   $(document).on("click", "th", function(event) {
