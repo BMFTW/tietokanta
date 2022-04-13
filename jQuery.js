@@ -193,8 +193,6 @@ $(document).ready( function() {
   // Filter rows
   var $table_rows = $("#table tr:gt(0)");
 
-  $table_rows.data("filter", filter_array);
-
   $(document).on("keyup", ".filter_text", function() {
 
     var col_num   = $(this).closest("th").index();
