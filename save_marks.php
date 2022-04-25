@@ -1,8 +1,6 @@
 <?php
 
-session_start();
-
-include "functions.php";
+include("config.php");
 
 $table = $_REQUEST["table"];
 $value = $_REQUEST["value"];
@@ -10,6 +8,14 @@ $value = $_REQUEST["value"];
 $table = str_replace("<space>", " ", $table);
 $value = str_replace("<space>", " ", $value);
 
-saveMarks($table, $value);
+$db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
+
+$conn = new PDO("sqlsrv:Server=$server;Database=$db", $user_db, $pwd_db);
+
+$sql = "UPDATE marks_tbl SET marks = ? WHERE tbl = ?";
+
+$stmt = $conn -> prepare($sql);
+
+$stmt -> execute([$value, $table]);
   
 ?>
