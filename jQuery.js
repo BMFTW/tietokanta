@@ -579,7 +579,8 @@ $(document).ready( function() {
   $("#addRow").click( function() {
 
     // Table
-    table = $("#selected_table").text();
+    table  = $("#selected_table").text();
+    id_col = $("#id_col").text();
 
     // Columns
     var columns = [];
@@ -590,7 +591,7 @@ $(document).ready( function() {
       columns.push(column);
     });
 
-    columns = columns.join(",");
+    columns = columns.join(",").replace(" ( ? )", "");
 
     if ( table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot" )
       id_col = "asiakasID";
@@ -620,6 +621,7 @@ $(document).ready( function() {
 
     // Table
     table = $("#selected_table").text();
+    id_col = $("#id_col").text();
 
     // Columns
     var columns = [];
@@ -630,7 +632,7 @@ $(document).ready( function() {
       columns.push(column);
     });
 
-    columns = columns.join(",");
+    columns = columns.join(",").replace(" ( ? )", "");
 
     if ( table == "asiakkaat_sopimukset" )
       id_col = "ASID";
