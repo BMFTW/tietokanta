@@ -114,7 +114,7 @@ $(document).ready( function() {
     $("#selected_table").text(table);
 
     // Generate table
-    $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns, function() { afterTableGenerated(); });
+    $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 
   });
 
@@ -133,7 +133,7 @@ $(document).ready( function() {
       .append("<br><label style = 'color: brown'><input type = 'checkbox' name = 'checkAll' value = 'Valitse kaikki'> Valitse kaikki</label>")
       .append("<br><br>")
 
-    $("#columns").load("get_columns.php?table=" + table, function() {
+    $("#columns").load("get_columns.php?table=" + table + "&uniqueID=" + new Date().getTime(), function() {
 
       var columns = $(this).text();
           
@@ -214,7 +214,7 @@ $(document).ready( function() {
         columns = columns.join(",");
 
         // Generate table
-        $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns, function() { afterTableGenerated(); });
+        $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 
         // Close modal
         $.modal.close();
@@ -276,7 +276,7 @@ $(document).ready( function() {
       $("th:contains(kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
 
     // Read marks
-    $("#get_marks").load("get_marks.php?table=" + table, function() {
+    $("#get_marks").load("get_marks.php?table=" + table + "&uniqueID=" + new Date().getTime(), function() {
 
       var marks = $(this).text();
 
@@ -511,7 +511,7 @@ $(document).ready( function() {
 
     value  =  value.replace(/<script/g, "");
 
-    $("#update_table").load("update_table.php?table=" + table + "&column=" + column + "&value=" + value + "&id_col=" + id_col + "&id=" + id, function () {
+    $("#update_table").load("update_table.php?table=" + table + "&column=" + column + "&value=" + value + "&id_col=" + id_col + "&id=" + id + "&uniqueID=" + new Date().getTime(), function () {
 
         var error = $(this).text() != "";
 
@@ -552,7 +552,7 @@ $(document).ready( function() {
 
       $("#get_marks").text( JSON.stringify(marks) );
 
-      $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
+      $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks) + "&uniqueID=" + new Date().getTime());
 
     } else {
 
@@ -567,7 +567,7 @@ $(document).ready( function() {
 
       $("#get_marks").text( JSON.stringify(marks) );
 
-      $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks));
+      $("#save_marks").load("save_marks.php?table=" + table + "&value=" + JSON.stringify(marks) + "&uniqueID=" + new Date().getTime());
 
     }
 
@@ -603,14 +603,14 @@ $(document).ready( function() {
     var txt   = "Anna uuden rivin sarakkeen " + id_col + " arvo:";
     var value = prompt(txt).trim();
 
-    $("#insert_row").load("insert_row.php?table=" + table + "&id_col=" + id_col + "&value=" + value, function () {
+    $("#insert_row").load("insert_row.php?table=" + table + "&id_col=" + id_col + "&value=" + value + "&uniqueID=" + new Date().getTime(), function () {
 
         var error = $(this).text() != "";
 
         if ( error )
           $(this).css("color", "red");
         else
-          $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns, function() { afterTableGenerated(); });
+          $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 
     });
 
@@ -654,14 +654,14 @@ $(document).ready( function() {
     var txt = "Anna poistettavan rivin sarakkeen " + id_col + " arvo:";
     var value = prompt(txt).trim();
 
-    $("#delete_row").load("delete_row.php?table=" + table + "&id_col=" + id_col + "&value=" + value, function () {
+    $("#delete_row").load("delete_row.php?table=" + table + "&id_col=" + id_col + "&value=" + value + "&uniqueID=" + new Date().getTime(), function () {
 
         var error = $(this).text() != "";
 
         if ( error )
           $(this).css("color", "red");
         else
-          $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns, function() { afterTableGenerated(); });
+          $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 
     });
 
