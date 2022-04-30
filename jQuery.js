@@ -30,6 +30,9 @@ $(document).ready( function() {
 
   });
 
+  // Show table selection
+  $("#header").hover( function() { $("#table_selection").slideDown(); });
+
   // Tables
   var tables = {
 
@@ -47,7 +50,7 @@ $(document).ready( function() {
     "crm_tj_kohteet"                : "Kaikki TJ-kohteet",
     "crm_apro_kohteet"              : "APro-kohteet",
     "crm_eki_kohteet"               : "EKI-kohteet",
-    "crm_haipro_kohteet"          : "HaiPro-kohteet",
+    "crm_haipro_kohteet"            : "HaiPro-kohteet",
     "crm_posipro_kohteet"           : "POS-kohteet",
     "crm_potra_kohteet"             : "PotRa-kohteet",
     "crm_qpro_kohteet"              : "QPro-kohteet",
@@ -59,7 +62,7 @@ $(document).ready( function() {
     "crm_wb_kohteet"                : "Whistleblowing-kohteet",
     "crm_wpro_kohteet"              : "WPro-kohteet",
 
-    "crm_pk_kohteet"         : "PK-kohteet",
+    "crm_pk_kohteet"                : "PK-kohteet",
 
     "crm_tj_irtisanotut"            : "Irtisanotut",
     "crm_tj_arkistokanta"           : "Arkistokanta",
@@ -244,6 +247,9 @@ $(document).ready( function() {
 
   // Table generated
   function afterTableGenerated() {
+
+    // Hide table selection
+    $("#table_selection").slideUp();
 
     // ID column
     var id_col;
