@@ -12,7 +12,7 @@ $db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
 
 $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user_db, $pwd_db);
 
-$sql = "UPDATE marks_tbl SET marks = ? WHERE tbl = ?";
+$sql = "UPDATE crm_marks SET marks = ? WHERE tbl = ?";
 
 $stmt = $conn -> prepare($sql);
 

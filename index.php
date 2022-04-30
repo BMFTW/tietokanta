@@ -40,32 +40,32 @@
 					<!-- "Vanhat" -->
 					<td id = "tables_vanhat">
 
-						<label> <input type = "radio"  name = "table"  value = "tj_kohteet">          Kaikki TJ-kohteet      </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_tj_kohteet">          Kaikki TJ-kohteet      </label> <br> <br>
 
-						<label> <input type = "radio"  name = "table"  value = "apro_kohteet">        APro-kohteet           </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "haipro_asiakkaat">    HaiPro-kohteet         </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "potra_kohteet">       PotRa-kohteet          </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "qpro_kohteet">        QPro-kohteet           </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "rapro_kohteet">       RaPro-kohteet          </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "samra_kohteet">       SamRa-kohteet          </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "spro_kohteet">        SPro-kohteet           </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "vakapro_kohteet">     VakaPro-kohteet        </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "wb_kohteet">          Whistleblowing-kohteet </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "wpro_kohteet">        WPro-kohteet           </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_apro_kohteet">        APro-kohteet           </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_haipro_kohteet">      HaiPro-kohteet         </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_potra_kohteet">       PotRa-kohteet          </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_qpro_kohteet">        QPro-kohteet           </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_rapro_kohteet">       RaPro-kohteet          </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_samra_kohteet">       SamRa-kohteet          </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_spro_kohteet">        SPro-kohteet           </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_vakapro_kohteet">     VakaPro-kohteet        </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_wb_kohteet">          Whistleblowing-kohteet </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_wpro_kohteet">        WPro-kohteet           </label> <br> <br>
 						
-						<label> <input type = "radio"  name = "table"  value = "tj_irtisanotut">      Irtisanotut            </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "tj_arkistokanta">     Arkistokanta           </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_tj_irtisanotut">      Irtisanotut            </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_tj_arkistokanta">     Arkistokanta           </label> <br> <br>
 
-						<label> <input type = "radio"  name = "table"  value = "haipro_kohde_laskut"> HaiPro-laskut          </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "wpro_kohde_laskut">   WPro-laskut            </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_haipro_kohde_laskut"> HaiPro-laskut          </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_wpro_kohde_laskut">   WPro-laskut            </label> <br> <br>
 						
-						<label> <input type = "radio"  name = "table"  value = "LOVe_asiakkaat">      LOVe-asiakkaat         </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "LOVe_laskut">         LOVe-laskut            </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_LOVe_asiakkaat">      LOVe-asiakkaat         </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_LOVe_laskut">         LOVe-laskut            </label> <br> <br>
 
-						<label> <input type = "radio"  name = "table"  value = "SAVe_asiakkaat">      SÄVe-asiakkaat         </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "SAVe_laskut">         SÄVe-laskut            </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_SAVe_asiakkaat">      SÄVe-asiakkaat         </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_SAVe_laskut">         SÄVe-laskut            </label> <br> <br>
 
-						<label> <input type = "radio"  name = "table"  value = "eloki_asiakkaat">     eLOKI-asiakkaat        </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_eloki_asiakkaat">     eLOKI-asiakkaat        </label> <br> <br>
 
 					</td>
 
@@ -74,10 +74,10 @@
 
 						<b>Alataulut</b> <br>
 
-						<label> <input type = "radio"  name = "table"  value = "eki_kohteet">         EKI-kohteet            </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "posipro_kohteet">     POS-kohteet            </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "vpn_kohteet">         VPN-kohteet            </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "haipro_pk_kohteet">   PK-kohteet             </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_eki_kohteet">     EKI-kohteet </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_posipro_kohteet"> POS-kohteet </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_vpn_kohteet">     VPN-kohteet </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_pk_kohteet">      PK-kohteet  </label> <br>
 
 					</td>
 
@@ -87,20 +87,20 @@
 						<!-- Asiakkaat -->
 						<b>Asiakkaat</b> <br>
 
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat">                 Asiakkaat            </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_sopimukset">      Sopimukset           </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_tarjoukset">      Tarjoukset           </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_koulutukset">     Koulutukset          </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_laskut">          Laskut               </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_tuotteet">        Tuotteet             </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_tuotteet_hinnat"> Tuotteiden hinnat    </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "asiakkaat_lisatiedot">      Lisätiedot           </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat">                 Asiakkaat            </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_sopimukset">      Sopimukset           </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_tarjoukset">      Tarjoukset           </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_koulutukset">     Koulutukset          </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_laskut">          Laskut               </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_tuotteet">        Tuotteet             </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_tuotteet_hinnat"> Tuotteiden hinnat    </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_asiakkaat_lisatiedot">      Lisätiedot           </label> <br> <br>
 						
 						<!-- Tuotteet -->
 						<b>Tuotteet</b> <br>
 						
-						<label> <input type = "radio"  name = "table"  value = "tuotteet">                  Tuotteet             </label> <br>
-						<label> <input type = "radio"  name = "table"  value = "tuotteet_lomakkeet">        Tuotteet - Lomakkeet </label> <br> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_tuotteet">           Tuotteet             </label> <br>
+						<label> <input type = "radio"  name = "table"  value = "crm_tuotteet_lomakkeet"> Tuotteet - Lomakkeet </label> <br> <br>
 
 					</td>
 

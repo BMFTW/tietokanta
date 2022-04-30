@@ -9,7 +9,7 @@ $db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
 
 $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user_db, $pwd_db);
 
-$sql = "SELECT marks FROM marks_tbl WHERE tbl = ?";
+$sql = "SELECT marks FROM crm_marks WHERE tbl = ?";
 
 $stmt = $conn -> prepare($sql);
 

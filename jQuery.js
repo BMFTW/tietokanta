@@ -33,47 +33,47 @@ $(document).ready( function() {
   // Tables
   var tables = {
 
-    "asiakkaat"                 : "Asiakkaat",
-    "asiakkaat_sopimukset"      : "Sopimukset",
-    "asiakkaat_tarjoukset"      : "Tarjoukset",
-    "asiakkaat_koulutukset"     : "Koulutukset",
-    "asiakkaat_laskut"          : "Laskut",
-    "asiakkaat_tuotteet"        : "Asiakkaat - Tuotteet",
-    "asiakkaat_tuotteet_hinnat" : "Asiakkaat - Tuotteet - Hinnat",
-    "asiakkaat_lisatiedot"      : "Lisätiedot",
-    "tuotteet"                  : "Tuotteet",
-    "tuotteet_lomakkeet"        : "Lomakkeet",
+    "crm_asiakkaat"                 : "Asiakkaat",
+    "crm_asiakkaat_sopimukset"      : "Sopimukset",
+    "crm_asiakkaat_tarjoukset"      : "Tarjoukset",
+    "crm_asiakkaat_koulutukset"     : "Koulutukset",
+    "crm_asiakkaat_laskut"          : "Laskut",
+    "crm_asiakkaat_tuotteet"        : "Asiakkaat - Tuotteet",
+    "crm_asiakkaat_tuotteet_hinnat" : "Asiakkaat - Tuotteet - Hinnat",
+    "crm_asiakkaat_lisatiedot"      : "Lisätiedot",
+    "crm_tuotteet"                  : "Tuotteet",
+    "crm_tuotteet_lomakkeet"        : "Lomakkeet",
 
-    "tj_kohteet"                : "Kaikki TJ-kohteet",
-    "apro_kohteet"              : "APro-kohteet",
-    "eki_kohteet"               : "EKI-kohteet",
-    "haipro_asiakkaat"          : "HaiPro-kohteet",
-    "posipro_kohteet"           : "POS-kohteet",
-    "potra_kohteet"             : "PotRa-kohteet",
-    "qpro_kohteet"              : "QPro-kohteet",
-    "rapro_kohteet"             : "RaPro-kohteet",
-    "samra_kohteet"             : "SamRa-kohteet",
-    "spro_kohteet"              : "SPro-kohteet",
-    "vakapro_kohteet"           : "VakaPro-kohteet",
-    "vpn_kohteet"               : "VPN-kohteet",
-    "wb_kohteet"                : "Whistleblowing-kohteet",
-    "wpro_kohteet"              : "WPro-kohteet",
+    "crm_tj_kohteet"                : "Kaikki TJ-kohteet",
+    "crm_apro_kohteet"              : "APro-kohteet",
+    "crm_eki_kohteet"               : "EKI-kohteet",
+    "crm_haipro_kohteet"          : "HaiPro-kohteet",
+    "crm_posipro_kohteet"           : "POS-kohteet",
+    "crm_potra_kohteet"             : "PotRa-kohteet",
+    "crm_qpro_kohteet"              : "QPro-kohteet",
+    "crm_rapro_kohteet"             : "RaPro-kohteet",
+    "crm_samra_kohteet"             : "SamRa-kohteet",
+    "crm_spro_kohteet"              : "SPro-kohteet",
+    "crm_vakapro_kohteet"           : "VakaPro-kohteet",
+    "crm_vpn_kohteet"               : "VPN-kohteet",
+    "crm_wb_kohteet"                : "Whistleblowing-kohteet",
+    "crm_wpro_kohteet"              : "WPro-kohteet",
 
-    "haipro_pk_kohteet"         : "PK-kohteet",
+    "crm_pk_kohteet"         : "PK-kohteet",
 
-    "tj_irtisanotut"            : "Irtisanotut",
-    "tj_arkistokanta"           : "Arkistokanta",
+    "crm_tj_irtisanotut"            : "Irtisanotut",
+    "crm_tj_arkistokanta"           : "Arkistokanta",
 
-    "haipro_kohde_laskut"       : "HaiPro-laskut",
-    "wpro_kohde_laskut"         : "WPro-laskut",
+    "crm_haipro_kohde_laskut"       : "HaiPro-laskut",
+    "crm_wpro_kohde_laskut"         : "WPro-laskut",
 
-    "LOVe_asiakkaat"            : "LOVe-asiakkaat",
-    "LOVe_laskut"               : "LOVe-laskut",
+    "crm_LOVe_asiakkaat"            : "LOVe-asiakkaat",
+    "crm_LOVe_laskut"               : "LOVe-laskut",
 
-    "SAVe_asiakkaat"            : "SÄVe-asiakkaat",
-    "SAVe_laskut"               : "SÄVe-laskut",
+    "crm_SAVe_asiakkaat"            : "SÄVe-asiakkaat",
+    "crm_SAVe_laskut"               : "SÄVe-laskut",
 
-    "eloki_asiakkaat"           : "eLOKI-asiakkaat"
+    "crm_eloki_asiakkaat"           : "eLOKI-asiakkaat"
 
   }
 
@@ -91,18 +91,18 @@ $(document).ready( function() {
 
   // Color table names
   $("label").has("input[value$=kohteet]").css("color", "blue");
-  $("label").has("input[value=haipro_asiakkaat]").css("color", "blue");
-  $("label").has("input[value^=tj]").css("color", "grey");
-  $("label").has("input[value=tj_kohteet]").css("color", "red");
+  $("label").has("input[value=crm_haipro_kohteet]").css("color", "blue");
+  $("label").has("input[value^=crm_tj]").css("color", "grey");
+  $("label").has("input[value=crm_tj_kohteet]").css("color", "red");
   $("label").has("input[value$=_kohde_laskut]").css("color", "brown");
-  $("label").has("input[value^=LOVe]").css("color", "YellowGreen");
-  $("label").has("input[value^=SAVe]").css("color", "CadetBlue");
-  $("label").has("input[value=eloki_asiakkaat]").css("color", "Tomato");
-  $("label").has("input[value^=asiakkaat]").css("color", "LightGrey");
-  $("label").has("input[value^=tuotteet]").css("color", "green");
+  $("label").has("input[value^=crm_LOVe]").css("color", "YellowGreen");
+  $("label").has("input[value^=crm_SAVe]").css("color", "CadetBlue");
+  $("label").has("input[value=crm_eloki_asiakkaat]").css("color", "Tomato");
+  $("label").has("input[value^=crm_asiakkaat]").css("color", "LightGrey");
+  $("label").has("input[value^=crm_tuotteet]").css("color", "green");
 
   // Disable new tables
-  $("input[value^=asiakkaat]").prop("disabled", "true");
+  $("input[value^=crm_asiakkaat]").prop("disabled", "true");
 
   // Select table
   $("#table_selection input").click( function() {
@@ -248,31 +248,31 @@ $(document).ready( function() {
     // ID column
     var id_col;
 
-    if ( table == "asiakkaat" || table == "asiakkaat_sopimukset" || table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot" )
+    if ( table == "crm_asiakkaat" || table == "crm_asiakkaat_sopimukset" || table == "crm_asiakkaat_tarjoukset" || table == "crm_asiakkaat_koulutukset" || table == "crm_asiakkaat_laskut" || table == "crm_asiakkaat_tuotteet" || table == "crm_asiakkaat_lisatiedot" )
       id_col = "asiakasID";
-    else if ( table == "asiakkaat_tuotteet_hinnat" )
+    else if ( table == "crm_asiakkaat_tuotteet_hinnat" )
       id_col = "ATUID";
-    else if ( table == "tuotteet" )
+    else if ( table == "crm_tuotteet" )
       id_col = "tuoteID";
-    else if ( table == "tuotteet_lomakkeet" )
+    else if ( table == "crm_tuotteet_lomakkeet" )
       id_col = "OID";
-    else if ( table == "tj_kohteet" || table == "apro_kohteet" || table == "eki_kohteet" || table == "haipro_asiakkaat" || table == "posipro_kohteet" || table == "spro_kohteet" || table == "vakapro_kohteet" || table == "vpn_kohteet" || table == "wb_kohteet" || table == "wpro_kohteet" || table == "potra_kohteet" || table == "rapro_kohteet" || table == "samra_kohteet" || table == "tj_irtisanotut" || table == "tj_arkistokanta" || table == "haipro_pk_kohteet" )
+    else if ( table == "crm_tj_kohteet" || table == "crm_apro_kohteet" || table == "crm_eki_kohteet" || table == "crm_haipro_kohteet" || table == "crm_posipro_kohteet" || table == "crm_spro_kohteet" || table == "crm_vakapro_kohteet" || table == "crm_vpn_kohteet" || table == "crm_wb_kohteet" || table == "crm_wpro_kohteet" || table == "crm_potra_kohteet" || table == "crm_rapro_kohteet" || table == "crm_samra_kohteet" || table == "crm_tj_irtisanotut" || table == "crm_tj_arkistokanta" || table == "crm_pk_kohteet" )
       id_col = "Kohde_ID";
-    else if ( table == "qpro_kohteet" )
+    else if ( table == "crm_qpro_kohteet" )
       id_col = "KohdeID";
-    else if ( table == "haipro_kohde_laskut" || table == "wpro_kohde_laskut" || table == "LOVe_laskut" || table == "SAVe_laskut" )
+    else if ( table == "crm_haipro_kohde_laskut" || table == "crm_wpro_kohde_laskut" || table == "crm_LOVe_laskut" || table == "crm_SAVe_laskut" )
       id_col = "lasku_nro";
-    else if ( table == "LOVe_asiakkaat" || table == "SAVe_asiakkaat" || table == "eloki_asiakkaat" )
+    else if ( table == "crm_LOVe_asiakkaat" || table == "crm_SAVe_asiakkaat" || table == "crm_eloki_asiakkaat" )
       id_col = "Asiakas_ID";
 
     $("#id_col").text(id_col);
 
     // Column infos
-    if ( table == "haipro_asiakkaat" )
+    if ( table == "crm_haipro_kohteet" )
       $("th:contains(pt_kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
-    if ( table == "wpro_kohteet" )
+    if ( table == "crm_wpro_kohteet" )
       $("th:contains(tt_kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
-    if ( table == "spro_kohteet" )
+    if ( table == "crm_spro_kohteet" )
       $("th:contains(kayttajamaara) div").append(" ( <abbr title = 'todellinen käyttäjämäärä, ei ole vähennetty perusmaksuun sisältyviä' style = 'color: red'>?</abbr> )");
 
     // Read marks
@@ -475,7 +475,7 @@ $(document).ready( function() {
     var p_tuote = $("th:contains(tuoteID)").index();
     var p_osio  = $("th:contains(osioID)").index();
 
-    if ( table == "asiakkaat_tuotteet" && ( p == p_tuote || p == p_osio ) )
+    if ( table == "crm_asiakkaat_tuotteet" && ( p == p_tuote || p == p_osio ) )
       return true;
 
     $(":button").not("#addRow, #deleteRow").css("visibility", "hidden");
@@ -593,11 +593,11 @@ $(document).ready( function() {
 
     columns = columns.join(",").replace(" ( ? )", "");
 
-    if ( table == "asiakkaat_tarjoukset" || table == "asiakkaat_koulutukset" || table == "asiakkaat_laskut" || table == "asiakkaat_tuotteet" || table == "asiakkaat_lisatiedot" )
+    if ( table == "crm_asiakkaat_tarjoukset" || table == "crm_asiakkaat_koulutukset" || table == "crm_asiakkaat_laskut" || table == "crm_asiakkaat_tuotteet" || table == "crm_asiakkaat_lisatiedot" )
       id_col = "asiakasID";
-    else if ( table == "asiakkaat_tuotteet_hinnat" )
+    else if ( table == "crm_asiakkaat_tuotteet_hinnat" )
       id_col = "ATUID";
-    else if ( table == "tuotteet_lomakkeet" )
+    else if ( table == "crm_tuotteet_lomakkeet" )
       id_col = "tuoteID";
 
     var txt   = "Anna uuden rivin sarakkeen " + id_col + " arvo:";
@@ -634,21 +634,21 @@ $(document).ready( function() {
 
     columns = columns.join(",").replace(" ( ? )", "");
 
-    if ( table == "asiakkaat_sopimukset" )
+    if ( table == "crm_asiakkaat_sopimukset" )
       id_col = "ASID";
-    else if ( table == "asiakkaat_tarjoukset" )
+    else if ( table == "crm_asiakkaat_tarjoukset" )
       id_col = "ATID";
-    else if ( table == "asiakkaat_koulutukset" )
+    else if ( table == "crm_asiakkaat_koulutukset" )
       id_col = "AKID";
-    else if ( table == "asiakkaat_laskut" )
+    else if ( table == "crm_asiakkaat_laskut" )
       id_col = "ALID";
-    else if ( table == "asiakkaat_tuotteet" )
+    else if ( table == "crm_asiakkaat_tuotteet" )
       id_col = "ATUID";
-    else if ( table == "asiakkaat_tuotteet_hinnat" )
+    else if ( table == "crm_asiakkaat_tuotteet_hinnat" )
       id_col = "ATHID";
-    else if ( table == "asiakkaat_lisatiedot" )
+    else if ( table == "crm_asiakkaat_lisatiedot" )
       id_col = "ALID";
-    else if ( table == "tuotteet_lomakkeet" )
+    else if ( table == "crm_tuotteet_lomakkeet" )
       id_col = "OID";
 
     var txt = "Anna poistettavan rivin sarakkeen " + id_col + " arvo:";

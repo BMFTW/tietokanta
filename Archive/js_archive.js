@@ -71,7 +71,7 @@ $(document).on("click", ".delete", function() {
 // Selection from dropdown list
 $("#table td").hover( function() {
 
-  if ( table != "asiakkaat_tuotteet" )
+  if ( table != "crm_asiakkaat_tuotteet" )
     return true;
 
   var $td = $(this);
