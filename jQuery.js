@@ -81,16 +81,16 @@ $(document).ready( function() {
   }
 
   // Positioning
-  $("#instructions").css("color", "blue").css("position", "absolute").css("margin-left", "1160px");
-  $("#logo").css("margin-left", "750px").css("margin-bottom", "-5px");
-  $("#table_selection").css("margin-left", "525px");
-  $("#header").css("margin-left", "640px").css("margin-bottom", "15px");
-  $("#tables").css("margin-left", "500px");
-  $("#tables label, #valitse_tiedot_txt, label:contains('Valitse kaikki'), #variables label").css("white-space", "nowrap");
-  $("#tables_alataulut").css("margin-top", "100px");
-  $("#valitse_tiedot").css("margin-top", "10px").css("margin-left", "765px");
-  $("#valitse_tiedot_txt").css("margin-left", "10px");
-  $("input[type=submit]").css("margin-top", "10px").css("margin-bottom", "20px").css("margin-left", "780px");
+  // $("#instructions").css("color", "blue").css("position", "absolute").css("margin-left", "1160px");
+  // $("#logo").css("margin-left", "750px").css("margin-bottom", "-5px");
+  // $("#table_selection").css("margin-left", "525px");
+  // $("#header").css("margin-left", "640px").css("margin-bottom", "15px");
+  // $("#tables").css("margin-left", "500px");
+  // $("#tables label, #valitse_tiedot_txt, label:contains('Valitse kaikki'), #variables label").css("white-space", "nowrap");
+  // $("#tables_alataulut").css("margin-top", "100px");
+  // $("#valitse_tiedot").css("margin-top", "10px").css("margin-left", "765px");
+  // $("#valitse_tiedot_txt").css("margin-left", "10px");
+  // $("input[type=submit]").css("margin-top", "10px").css("margin-bottom", "20px").css("margin-left", "780px");
 
   // Color table names
   $("label").has("input[value$=kohteet]").css("color", "blue");
