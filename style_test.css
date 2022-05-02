@@ -1,0 +1,12 @@
+body {
+  font-family: "Computer Modern Serif";
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#table_selection label {
+    margin-bottom: -5px;
+}

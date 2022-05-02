@@ -56,7 +56,7 @@ if ( $data_transfer ) {
 
     if ( $value != "" ) {
 
-        if      ( $column == "pk"  )               $sql_exists = "SELECT COUNT(*) FROM crm_pk_kohteet WHERE Kohde_ID = ?";
+        if      ( $column == "pk"  )               $sql_exists = "SELECT COUNT(*) FROM crm_pk_kohteet        WHERE Kohde_ID = ?";
         else if ( $column == "vpn" )               $sql_exists = "SELECT COUNT(*) FROM crm_vpn_kohteet       WHERE Kohde_ID = ?";
         else if ( $column == "pos_kayttajamaara" ) $sql_exists = "SELECT COUNT(*) FROM crm_posipro_kohteet   WHERE Kohde_ID = ?";
         else if ( $column == "eki_kayttajamaara" ) $sql_exists = "SELECT COUNT(*) FROM crm_eki_kohteet       WHERE Kohde_ID = ?";
