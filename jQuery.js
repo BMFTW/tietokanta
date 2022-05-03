@@ -1,14 +1,14 @@
 $(document).ready( function() {
 
   // Instructions
-  $(".jumbotron").click( function() {
+  $("#instructions").click( function() {
 
     $("#modal_instructions")
       .empty()
       .append("<p style = 'text-align: center; font-weight: bold'>Ohje</p>")
       .append("<hr>")
-      .append("<p>- Taulunvalinnassa saa sarakevalintanäkymän esiin painamlla taulun nimeä hiiren oikealla painikkeella")
-      .append("<p>- Taulun sarakkeet voi järjestää aakkos-/numerojärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä")
+      .append("<p>- Tauluvalinnassa saa sarakevalintanäkymän esiin painamlla taulun nimeä hiiren oikealla painikkeella")
+      .append("<p>- Taulun sarakkeet voi järjestää aakkos-/ numerojärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä")
       .append("<p>- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'onarvo' (suodattaa pois tyhjät arvot), 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu), 'tyhjä' (rivit, joissa kyseisen sarakkeen arvo on tyhjä) tai 'huom' (rivit, joissa sarakkeen arvossa on huomioväri). Kaikki suodatukset voi poistaa kerralla painamalla ESC")
       .append("<p>- Sarakkeiden leveyttä voi muuttaa klikkaamalla sarakesolun oikeaa alakulmaa ja rahaamalla hiirtä nappi pohjassa")
       .append("<p>- Taulun solua klikkaamalla tekstiä voi muokata ja tallenusnappia painamalla tallentaa tiedot tietokantaan. Jos tallennus onnistui, niin solun taustaväri muuttuu vihreäksi ja punaiseksi, jos tallennus epäonnistui")
@@ -81,16 +81,7 @@ $(document).ready( function() {
   }
 
   // Positioning
-  // $("#instructions").css("color", "blue").css("position", "absolute").css("margin-left", "1160px");
-  // $("#logo").css("margin-left", "750px").css("margin-bottom", "-5px");
-  // $("#table_selection").css("margin-left", "525px");
-  // $("#header").css("margin-left", "640px").css("margin-bottom", "15px");
-  // $("#tables").css("margin-left", "500px");
-  // $("#tables label, #valitse_tiedot_txt, label:contains('Valitse kaikki'), #variables label").css("white-space", "nowrap");
-  // $("#tables_alataulut").css("margin-top", "100px");
-  // $("#valitse_tiedot").css("margin-top", "10px").css("margin-left", "765px");
-  // $("#valitse_tiedot_txt").css("margin-left", "10px");
-  // $("input[type=submit]").css("margin-top", "10px").css("margin-bottom", "20px").css("margin-left", "780px");
+  $(".jumbotron").children().css("margin-right", "50px");
 
   // Color table names
   $("label").has("input[value$=kohteet]").css("color", "blue");
@@ -396,29 +387,29 @@ $(document).ready( function() {
   }
 
   // Highlight columns
-  $(document).on({
+  // $(document).on({
 
-    mouseenter: function() {
+  //   mouseenter: function() {
 
-      var n = $(this).index();
+  //     var n = $(this).index();
 
-      $("#table tr").each( function() {
-        $(this).find("td:eq(" + n + ")").addClass("highlight");
-      });
+  //     $("#table tr").each( function() {
+  //       $(this).find("td:eq(" + n + ")").addClass("highlight");
+  //     });
 
-    },
+  //   },
 
-    mouseleave: function() {
+  //   mouseleave: function() {
 
-      var n = $(this).index();
+  //     var n = $(this).index();
 
-      $("#table tr").each( function() {
-        $(this).find("td:eq(" + n + ")").removeClass("highlight");
-      });
+  //     $("#table tr").each( function() {
+  //       $(this).find("td:eq(" + n + ")").removeClass("highlight");
+  //     });
 
-    }
+  //   }
 
-  }, "th");
+  // }, "th");
 
   // Click column
   $(document).on("click", "th", function(event) {

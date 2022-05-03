@@ -30,18 +30,6 @@ header("Pragma: no-cache");
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-
-    
-
-    <script>
-
-        $(document).ready( function() {
-
-            $(".jumbotron").children().css("margin-right", "50px");
-
-        })
-
-    </script>
     
   </head>
   
@@ -49,9 +37,10 @@ header("Pragma: no-cache");
   
     <!-- Header -->
     <div class = "jumbotron text-center">
-      <img src = "logo.png">
-      <h5>Tietokantakäyttöliittymä</h5>
-      <p><?php echo date("j.n.Y"); ?></p>
+		<a href = "javascript:void(0)" id = "instructions">Ohje</a><br>
+      	<img src = "logo.png">
+      	<h5>Tietokantakäyttöliittymä</h5>
+      	<p><?php echo date("j.n.Y"); ?></p>
     </div>
 
     <div id = "table_selection" class = "container">
@@ -153,26 +142,30 @@ header("Pragma: no-cache");
 
     </div>
 
-    <!-- Table name -->
-    <div>
-        <h3 id = "table_name"></h3>
-    <div>
+    <div class = "col-md-12">
 
-    <!-- Table update error messages -->
-    <p id = "update_table"></p>
+		<!-- Table name -->
+        <h4 id = "table_name"></h4>
 
-    <!-- Table -->
-    <div id = "table_element"></div>
+		<!-- Table update error messages -->
+		<p id = "update_table"></p>
 
-    <br>
+		<!-- Table -->
+		<div id = "table_element"></div>
 
-    <!-- Add row -->
-    <input type = "button" class = "hidden" id = "addRow" value = "Lisää rivi">
+		<br>
 
-    &nbsp;
+		<!-- Add row -->
+		<input type = "button" class = "btn btn-success hidden" id = "addRow" value = "Lisää rivi">
 
-    <!-- Delete row -->
-    <input type = "button" class = "hidden" id = "deleteRow" value = "Poista rivi">
+		&nbsp;
+
+		<!-- Delete row -->
+		<input type = "button" class = "btn btn-danger hidden" id = "deleteRow" value = "Poista rivi">
+
+	</div>
+
+	<br>
 
     <!-- Hidden data -->
     <div class = "hidden">
