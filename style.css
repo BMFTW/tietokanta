@@ -54,3 +54,20 @@ input[type="button"]:not(#show_table):not(#addRow):not(#deleteRow) { visibility:
 .highlight { background-color: #ddd; }
 .marked    { background-color: yellow; }
 .hidden    { display: none; }
+
+body {
+  font-family: "Computer Modern Serif";
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#table_selection label {
+    margin-bottom: -5px;
+}
+
+.modal {
+    overflow: scroll;
+}  

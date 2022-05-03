@@ -1,13 +1,7 @@
 $(document).ready( function() {
 
-  $(".jumbotron").click( function() {
-
-    $("#modal_instructions_button").click();
-
-  });
-
   // Instructions
-  $("#instructions").click( function() {
+  $(".jumbotron").click( function() {
 
     $("#modal_instructions")
       .empty()
@@ -136,11 +130,12 @@ $(document).ready( function() {
 
     $("#modal_column_selection")
       .empty()
-      .append("<p><b>" + tables[table] + "</b></p>")
+      .append("<p style = 'margin-top: 10px'><b>" + tables[table] + "</b></p>")
       .append("<p>Valitse tiedot</p>")
       .append("<hr>")
-      .append("<br><label style = 'color: brown'><input type = 'checkbox' name = 'checkAll' value = 'Valitse kaikki'> Valitse kaikki</label>")
-      .append("<br><br>")
+      .append("<div style = 'margin-top: 30px'></div>")
+      .append("<label style = 'color: brown;'><input type = 'checkbox' name = 'checkAll' value = 'Valitse kaikki'> Valitse kaikki</label>")
+      .append("<br><br>");
 
     $("#columns").load("get_columns.php?table=" + table + "&uniqueID=" + new Date().getTime(), function() {
 
@@ -154,17 +149,18 @@ $(document).ready( function() {
 
         column = columns[i];
 
-        $("#modal_column_selection").append("<div><label><input type = 'checkbox' name = 'columns' value = '" + column + "'> " + column + "</label></div>");
+        $("#modal_column_selection").append("<label><input type = 'checkbox' name = 'columns' value = '" + column + "'> " + column + "</label><br>");
 
       }
 
       $("#modal_column_selection")
+        .append("<hr>")
         .append("<br>")
-        .append("<input type = 'button' id = 'show_table' value = 'Näytä taulu'><br>");
+        .append("<div style = 'text-align: center'><button type='button' class='btn btn-success' id = 'show_table' value = 'Näytä taulu'>Näytä taulu</button></div>")
+        .append("<br>");
 
       $("#modal_column_selection p").css("text-align", "center");
-      $("#modal_column_selection label").has("input[type=checkbox]").css("margin-left", "130px");
-      $("#modal_column_selection input[type=button]").css("margin-left", "175px");
+      $("#modal_column_selection label").has("input[type=checkbox]").css("margin-top", "-50px").css("margin-left", "130px");
 
       // Always checked
       var uudet  = ["asiakasID", "ASID", "ATID", "AKID", "ALID", "ATUID", "ATHID", "tuoteID", "OID"];
