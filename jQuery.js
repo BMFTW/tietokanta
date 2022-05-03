@@ -1,5 +1,11 @@
 $(document).ready( function() {
 
+  $(".jumbotron").click( function() {
+
+    $("#modal_instructions_button").click();
+
+  });
+
   // Instructions
   $("#instructions").click( function() {
 
@@ -31,7 +37,7 @@ $(document).ready( function() {
   });
 
   // Show table selection
-  $("#header").hover( function() { $("#table_selection").slideDown(); });
+  $(".jumbotron").hover( function() { $("#table_selection").slideDown(); });
 
   // Tables
   var tables = {
@@ -680,7 +686,7 @@ $(document).ready( function() {
 
     if ( !$target.closest("#table").length ) {
 
-      $(":button").not("#show_table, #addRow, #deleteRow").css("visibility", "hidden");
+      $(":button").not(".close, #show_table, #addRow, #deleteRow").css("visibility", "hidden");
       $(".filter_text").each( function() { if ( $(this).val().trim() == "" ) { $(this).remove(); } });
 
     }

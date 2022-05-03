@@ -1,7 +1,7 @@
 <?php
 
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age = 0");
+header("Cache-Control: post-check = 0, pre-check = 0", false);
 header("Pragma: no-cache");
 
 ?>
@@ -14,7 +14,6 @@ header("Pragma: no-cache");
 
     <!-- Title -->
     <title>Tietokantakäyttöliittymä</title>
-
     <!-- Meta -->
     <meta charset = "utf-8">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
@@ -22,13 +21,14 @@ header("Pragma: no-cache");
     <!-- CSS -->
     <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel = "stylesheet" href = "style_test.css">
-    <link href = "https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css" rel="stylesheet">
+    <link href = "https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css" rel = "stylesheet">
 
     <!-- JavaScript -->
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src = "jQuery.js?<?php echo filemtime("jQuery.js"); ?>"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
     <script>
 
@@ -147,6 +147,118 @@ header("Pragma: no-cache");
             </div>
 
         </div>
+
+    </div>
+
+    <!-- Table name -->
+    <div>
+        <h3 id = "table_name"></h3>
+    <div>
+
+    <!-- Table update error messages -->
+    <p id = "update_table"></p>
+
+    <!-- Table -->
+    <div id = "table_element"></div>
+
+    <br>
+
+    <!-- Add row -->
+    <input type = "button" class = "hidden" id = "addRow" value = "Lisää rivi">
+
+    &nbsp;
+
+    <!-- Delete row -->
+    <input type = "button" class = "hidden" id = "deleteRow" value = "Poista rivi">
+
+    <!-- Hidden data -->
+    <div class = "hidden">
+
+        <p id = "selected_table"></p>
+        <p id = "id_col">        </p>
+        <p id = "columns">       </p>
+        <p id = "get_marks">     </p>
+        <p id = "save_marks">    </p>
+        <p id = "insert_row">  	 </p>
+        <p id = "delete_row">    </p>
+
+        <!-- Ohje -->
+        <div class = "modal" id = "modal_instructions">
+
+          <div class = "modal-dialog">
+
+            <div class = "modal-content">
+
+              <!-- Modal Header -->
+              <div class = "modal-header">
+                <h4 class = "modal-title" style = "text-align: center">Ohje</h4>
+              </div>
+
+              <!-- Modal body -->
+              <div class = "modal-body">
+                
+                <p>- Taulunvalinnassa saa sarakevalintanäkymän esiin painamlla taulun nimeä hiiren oikealla painikkeella"</p>
+                <p>- Taulun sarakkeet voi järjestää aakkos-/numerojärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä"</p>
+                <p>- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'onarvo' (suodattaa pois tyhjät arvot), 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu), 'tyhjä' (rivit, joissa kyseisen sarakkeen arvo on tyhjä) tai 'huom' (rivit, joissa sarakkeen arvossa on huomioväri). Kaikki suodatukset voi poistaa kerralla painamalla ESC"</p>
+                <p>- Sarakkeiden leveyttä voi muuttaa klikkaamalla sarakesolun oikeaa alakulmaa ja rahaamalla hiirtä nappi pohjassa"</p>
+                <p>- Taulun solua klikkaamalla tekstiä voi muokata ja tallenusnappia painamalla tallentaa tiedot tietokantaan. Jos tallennus onnistui, niin solun taustaväri muuttuu vihreäksi ja punaiseksi, jos tallennus epäonnistui"</p>
+                <p>- Taulun soluihin voi jättää huomiovärin klikkaamalla solua hiiren oikealla napilla"</p>
+                <p>- Tauluun voi lisätä rivejä painamalla taulun alla olevaa Lisää rivi -nappia"</p>
+                <p>- Taulun rivejä voi poistaa painamalla taulun alla olevaa Poista rivi -nappia"</p>
+
+              </div>
+
+              <!-- Modal footer -->
+              <div class = "modal-footer">
+                <button type = "button" class = "btn btn-danger" data-dismiss = "modal">Sulje</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <button id = "modal_instructions_button" data-toggle = "modal" data-target = "#modal_instructions"></button>
+
+        <!-- Valitse tiedot -->
+        <div class = "modal" id = "select_columns">
+
+          <div class = "modal-dialog">
+
+            <div class = "modal-content">
+
+              <!-- Modal Header -->
+              <div class = "modal-header">
+                <h4 class = "modal-title" style = "text-align: center">Ohje</h4>
+              </div>
+
+              <!-- Modal body -->
+              <div class = "modal-body">
+
+                <p>- Taulunvalinnassa saa sarakevalintanäkymän esiin painamlla taulun nimeä hiiren oikealla painikkeella"</p>
+                <p>- Taulun sarakkeet voi järjestää aakkos-/numerojärjestykseen painamalla hiiren oikealla napilla sarakkeen nimeä"</p>
+                <p>- Taulun rivejä voi suodattaa klikkamalla sarakkeen nimen solua ja kirjoittamalla avautuvaan teksikenttään suodatuskriteerin, esimerkiksi 'helsinki', '< 10', 'onarvo' (suodattaa pois tyhjät arvot), 'NOT keuruu' (rivit, joissa sarakkeen arvo ei sisällä kirjainyhdistelmää keuruu), 'tyhjä' (rivit, joissa kyseisen sarakkeen arvo on tyhjä) tai 'huom' (rivit, joissa sarakkeen arvossa on huomioväri). Kaikki suodatukset voi poistaa kerralla painamalla ESC"</p>
+                <p>- Sarakkeiden leveyttä voi muuttaa klikkaamalla sarakesolun oikeaa alakulmaa ja rahaamalla hiirtä nappi pohjassa"</p>
+                <p>- Taulun solua klikkaamalla tekstiä voi muokata ja tallenusnappia painamalla tallentaa tiedot tietokantaan. Jos tallennus onnistui, niin solun taustaväri muuttuu vihreäksi ja punaiseksi, jos tallennus epäonnistui"</p>
+                <p>- Taulun soluihin voi jättää huomiovärin klikkaamalla solua hiiren oikealla napilla"</p>
+                <p>- Tauluun voi lisätä rivejä painamalla taulun alla olevaa Lisää rivi -nappia"</p>
+                <p>- Taulun rivejä voi poistaa painamalla taulun alla olevaa Poista rivi -nappia"</p>
+
+              </div>
+
+              <!-- Modal footer -->
+              <div class = "modal-footer">
+                <button type = "button" class = "btn btn-danger" data-dismiss = "modal">Sulje</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <button id = "modal_instructions_button" data-toggle = "modal" data-target = "#modal_instructions"></button>
 
     </div>
   
