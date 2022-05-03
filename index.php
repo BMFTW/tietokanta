@@ -97,6 +97,7 @@ header("Pragma: no-cache");
                     <tbody>
 
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_eki_kohteet">     EKI-kohteet </label></tr> <br>
+                        <tr><label> <input type = "radio"  name = "table"  value = "crm_kpi_kohteet">     KPI-kohteet </label></tr> <br>
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_posipro_kohteet"> POS-kohteet </label></tr> <br>
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_vpn_kohteet">     VPN-kohteet </label></tr> <br>
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_pk_kohteet">      PK-kohteet  </label></tr> <br>

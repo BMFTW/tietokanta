@@ -21,6 +21,7 @@ $haipro_tables = array(
   "crm_tj_kohteet",
   "crm_apro_kohteet",
   "crm_eki_kohteet",
+  "crm_kpi_kohteet",
   "crm_haipro_kohteet",
   "crm_posipro_kohteet",
   "crm_qpro_kohteet",

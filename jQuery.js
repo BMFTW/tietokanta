@@ -50,6 +50,7 @@ $(document).ready( function() {
     "crm_tj_kohteet"                : "Kaikki TJ-kohteet",
     "crm_apro_kohteet"              : "APro-kohteet",
     "crm_eki_kohteet"               : "EKI-kohteet",
+    "crm_kpi_kohteet"               : "KPI-kohteet",
     "crm_haipro_kohteet"            : "HaiPro-kohteet",
     "crm_posipro_kohteet"           : "POS-kohteet",
     "crm_potra_kohteet"             : "PotRa-kohteet",
@@ -255,7 +256,7 @@ $(document).ready( function() {
       id_col = "tuoteID";
     else if ( table == "crm_tuotteet_lomakkeet" )
       id_col = "OID";
-    else if ( table == "crm_tj_kohteet" || table == "crm_apro_kohteet" || table == "crm_eki_kohteet" || table == "crm_haipro_kohteet" || table == "crm_posipro_kohteet" || table == "crm_spro_kohteet" || table == "crm_vakapro_kohteet" || table == "crm_vpn_kohteet" || table == "crm_wb_kohteet" || table == "crm_wpro_kohteet" || table == "crm_potra_kohteet" || table == "crm_rapro_kohteet" || table == "crm_samra_kohteet" || table == "crm_tj_irtisanotut" || table == "crm_tj_arkistokanta" || table == "crm_pk_kohteet" )
+    else if ( table == "crm_tj_kohteet" || table == "crm_apro_kohteet" || table == "crm_eki_kohteet" || table == "crm_kpi_kohteet" || table == "crm_haipro_kohteet" || table == "crm_posipro_kohteet" || table == "crm_spro_kohteet" || table == "crm_vakapro_kohteet" || table == "crm_vpn_kohteet" || table == "crm_wb_kohteet" || table == "crm_wpro_kohteet" || table == "crm_potra_kohteet" || table == "crm_rapro_kohteet" || table == "crm_samra_kohteet" || table == "crm_tj_irtisanotut" || table == "crm_tj_arkistokanta" || table == "crm_pk_kohteet" )
       id_col = "Kohde_ID";
     else if ( table == "crm_qpro_kohteet" )
       id_col = "KohdeID";
