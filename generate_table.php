@@ -30,11 +30,11 @@ if ( $columns == "*" ) {
 $html = "<table>";
 
 // Headers
-$headers = "<tr>";
+$headers = "<thead><tr>";
 foreach ( $columns as $column ) {
     $headers .= "<th>" . $column . "</th>";
 }
-$headers .= "</tr>";
+$headers .= "</tr></thead>";
 
 $html .= $headers;
 
@@ -49,7 +49,7 @@ $rows = $conn -> query($sql);
 $columns = preg_replace("/^\[/", "", $columns);
 $columns = preg_replace("/\]$/", "", $columns);
 
-$data = "";
+$data = "<tbody>";
 
 foreach ( $rows as $row ) {
 
@@ -67,13 +67,14 @@ foreach ( $rows as $row ) {
 }
 
 $html .= $data;
+$html .= "</tbody>";
 
 // Edit table
-$html = str_replace("<table>", "<table border = '1' id = 'table' class = 'w3'>", $html);
+$html = str_replace("<table>", "<table border = '1' id = 'table' class = 'table w3'>", $html);
 $html = str_replace("<th>", "<th><div>", $html);
 $html = str_replace("</th>", "</div></th>", $html);
 $html = str_replace("<td", "<td contenteditable = 'true'", $html);
-$html = str_replace("</td>", "<input type = 'button' class = 'save' value = 'Tallenna'></td>", $html);
+$html = str_replace("</td>", "<input type = 'button' class = 'btn btn-primary save' value = 'Tallenna'></td>", $html);
 $html = str_replace("</td>", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>", $html);
 $html = str_replace('style="text-align: right;"', "", $html);
 $html = preg_replace("/>\s+<\/td>/", ">&nbsp;</td>", $html);

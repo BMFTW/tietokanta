@@ -1,5 +1,9 @@
 $(document).ready( function() {
 
+  // Jumbotron
+  $(".jumbotron").children().css("margin-right", "50px");
+  $(".jumbotron").hover( function() { $("#table_selection").slideDown(); });
+
   // Instructions
   $("#instructions").click( function() {
 
@@ -29,9 +33,6 @@ $(document).ready( function() {
 
 
   });
-
-  // Show table selection
-  $(".jumbotron").hover( function() { $("#table_selection").slideDown(); });
 
   // Tables
   var tables = {
@@ -81,8 +82,8 @@ $(document).ready( function() {
 
   }
 
-  // Positioning
-  $(".jumbotron").children().css("margin-right", "50px");
+  // Disable new tables
+  $("input[value^=crm_asiakkaat]").prop("disabled", "true");
 
   // Color table names
   $("label").has("input[value$=kohteet]").css("color", "blue");
@@ -96,14 +97,11 @@ $(document).ready( function() {
   $("label").has("input[value^=crm_asiakkaat]").css("color", "LightGrey");
   $("label").has("input[value^=crm_tuotteet]").css("color", "green");
 
-  // Disable new tables
-  $("input[value^=crm_asiakkaat]").prop("disabled", "true");
-
   // Select table
   $("#table_selection input").click( function() {
 
-    table   = $(this).val();
-    columns = "*";
+    var table   = $(this).val();
+    var columns = "*";
 
     $("#table_name").text(tables[table]);
     $("#selected_table").text(table);
@@ -116,7 +114,7 @@ $(document).ready( function() {
   // Column selection
   $(document).on("contextmenu", "#table_selection label", function() {
 
-    table = $(this).find("input").val();
+    var table = $(this).find("input").val();
     
     $(this).find("input").prop("checked", true);
 
@@ -196,6 +194,7 @@ $(document).ready( function() {
         $("#table th").css("position", "sticky");
       });
 
+      // Click show table
       $("#show_table").click( function() {
 
         $("#table_name").text(tables[table]);
@@ -203,7 +202,7 @@ $(document).ready( function() {
 
         var columns = [];
 
-        $("input[name='columns']:checked").each( function() {
+        $("input[name=columns]:checked").each( function() {
           column = $(this).val();
           columns.push(column);
         });
@@ -216,7 +215,7 @@ $(document).ready( function() {
         // Close modal
         $.modal.close();
 
-      })
+      });
 
     });
 
@@ -291,6 +290,8 @@ $(document).ready( function() {
         var p_id = $("th:contains(" + id_col + ")").index();
 
         var n_id = $("#table tr").find("td:eq(" + p_id + ")").filter( function() { return $(this).text().trim() == id_val;  } ).closest("tr").index();
+            n_id = n_id != "-1" ? n_id + 1 : n_id;
+
         var p = $("th:contains(" + column + ")").index();
 
         if ( n_id != "-1" && p != "-1" )
@@ -387,39 +388,25 @@ $(document).ready( function() {
 
   }
 
-  // Highlight columns
-  // $(document).on({
+  // Hide table selection when hovering over table
+  $(document).on({
 
-  //   mouseenter: function() {
+    mouseenter: function() {
 
-  //     var n = $(this).index();
+      $("#table_selection").slideUp();
 
-  //     $("#table tr").each( function() {
-  //       $(this).find("td:eq(" + n + ")").addClass("highlight");
-  //     });
+    }
 
-  //   },
-
-  //   mouseleave: function() {
-
-  //     var n = $(this).index();
-
-  //     $("#table tr").each( function() {
-  //       $(this).find("td:eq(" + n + ")").removeClass("highlight");
-  //     });
-
-  //   }
-
-  // }, "th");
+  }, "#table");
 
   // Click column
   $(document).on("click", "th", function(event) {
 
-    var column  = $(this).closest("th").text().replace(" Ok", "");
+    var column  = $(this).closest("th").text();
     var $target = $(event.target);
 
     if ( !$(this).find("input").length ) {
-      $(this).append("<input type = 'text' class = 'filter_text' name = '" + column + "' placeholder = 'Suodata...' autocomplete = 'off'>");
+      $(this).append("<input type = 'text' class = 'form-control filter_text' name = '" + column + "' placeholder = 'Suodata...' autocomplete = 'off'>");
       $(this).find(".filter_text").focus();
     } else if ( !$target.is(".filter_text") && $(this).find(".filter_text").val().trim() == "" ) {
         $(this).empty();
@@ -495,7 +482,7 @@ $(document).ready( function() {
 
     var $button = $(this);
 
-    var n = $button.closest("tr").index();
+    var n = $button.closest("tr").index() + 1;
     var p = $button.closest("td").index();
 
     var p_id = $("th:contains(" + id_col + ")").index();
@@ -530,7 +517,7 @@ $(document).ready( function() {
 
     var $td = $(this);
 
-    var n = $td.closest("tr").index();
+    var n = $td.closest("tr").index() + 1;
     var p = $td.closest("td").index();
 
     id_col = $("#id_col").text();

@@ -14,6 +14,7 @@ header("Pragma: no-cache");
 
     <!-- Title -->
     <title>Tietokantakäyttöliittymä</title>
+
     <!-- Meta -->
     <meta charset = "utf-8">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
@@ -43,9 +44,11 @@ header("Pragma: no-cache");
       	<p><?php echo date("j.n.Y"); ?></p>
     </div>
 
-    <div id = "table_selection" class = "container">
+    <!-- Container 1 -->
+    <div class = "container">
 
-        <div class = "row justify-content-center">
+        <!-- Table selection -->
+        <div id = "table_selection" class = "row justify-content-center">
 
             <!-- "Vanhat" -->
             <div class = "col-md-3 offset-md-1">
@@ -53,8 +56,7 @@ header("Pragma: no-cache");
                 <table class = "table table-responsive">
 
                     <tbody>
-    
-                        <!-- <tr><label><input type = "radio" name = "optradio"> Option 1</label></tr> <br> -->
+
 
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_tj_kohteet">          Kaikki TJ-kohteet      </label></tr> <br> <br>
 
@@ -143,45 +145,73 @@ header("Pragma: no-cache");
 
     </div>
 
-    <div class = "col-md-12">
+    <!-- Container 2 -->
+    <div class = "container-fluid">
 
-		<!-- Table name -->
-        <h4 id = "table_name"></h4>
+        <!-- Table name & error messages -->
+        <div class = "row">
 
-		<!-- Table update error messages -->
-		<p id = "update_table"></p>
+            <div class = "col-md-12">
 
-		<!-- Table -->
-		<div id = "table_element"></div>
+                <h4 id = "table_name"></h4>
 
-		<br>
+                <p id = "update_table"></p>
 
-		<!-- Add row -->
-		<input type = "button" class = "btn btn-success hidden" id = "addRow" value = "Lisää rivi">
+            </div>
 
-		&nbsp;
+        </div>
 
-		<!-- Delete row -->
-		<input type = "button" class = "btn btn-danger hidden" id = "deleteRow" value = "Poista rivi">
+        <!-- Table -->
+        <div class = "row">
 
-	</div>
+            <div id = "table_element" class = "col-md-8"></div>
 
-	<br>
+        </div>
 
-    <!-- Hidden data -->
-    <div class = "hidden">
+        <!-- Delete & add row -->
+        <div class = "row">
 
-        <p id = "selected_table"></p>
-        <p id = "id_col">        </p>
-        <p id = "columns">       </p>
-        <p id = "get_marks">     </p>
-        <p id = "save_marks">    </p>
-        <p id = "insert_row">  	 </p>
-        <p id = "delete_row">    </p>
+            <div class = "col-md-12">
 
-        <!-- Modal -->
-        <div class = "modal" id = "modal_instructions"></div>
-        <div class = "modal" id = "modal_column_selection"></div>
+                <!-- Delete -->
+                <input type = "button" class = "btn btn-danger hidden" id = "deleteRow" value = "Poista rivi">  
+
+                &nbsp;
+
+                <!-- Add -->
+                <input type = "button" class = "btn btn-success hidden" id = "addRow" value = "Lisää rivi">                
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- Container 3 -->
+    <div class = "container">
+
+        <!-- Hidden data -->
+        <div class = "row hidden">
+
+            <div class = "col-md-12">
+
+                <p id = "selected_table"></p>
+                <p id = "id_col">        </p>
+                <p id = "columns">       </p>
+                <p id = "get_marks">     </p>
+                <p id = "save_marks">    </p>
+                <p id = "insert_row">  	 </p>
+                <p id = "delete_row">    </p>
+
+                <!-- Modal -->
+                <div class = "modal" id = "modal_instructions"></div>
+                <div class = "modal" id = "modal_column_selection"></div>
+
+            </div>
+
+        </div>
 
     </div>
   
