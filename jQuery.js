@@ -241,6 +241,8 @@ $(document).ready( function() {
   // Table generated
   function afterTableGenerated() {
 
+    var table = $("#selected_table").text();
+
     // Hide table selection
     $("#table_selection").slideUp();
 
@@ -514,6 +516,8 @@ $(document).ready( function() {
 
   // Mark cell with right mouse click
   $(document).on("contextmenu", "#table td", function() {
+
+    var table = $("#selected_table").text();
 
     var $td = $(this);
 
