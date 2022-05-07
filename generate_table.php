@@ -42,7 +42,16 @@ $columns = preg_replace("/^/", "[", $columns);
 $columns = preg_replace("/$/", "]", $columns);
 
 // Data
-$sql = "SELECT " . implode(", ", $columns) . " FROM $table ORDER BY CAST($columns[0] AS INT)";
+$sql = "
+
+    SELECT
+        " . implode(", ", $columns) . "
+    FROM
+        $table 
+    ORDER BY
+        CAST( REPLACE( $columns[0], '-', '.' ) AS FLOAT )
+
+";
 
 $rows = $conn -> query($sql);
 
