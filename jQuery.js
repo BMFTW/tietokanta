@@ -380,7 +380,7 @@ $(document).ready( function() {
     });
 
     // Reapply CSS
-    $("head").append("<link href = 'style.css' rel = 'stylesheet' />");
+    $("head").append("<link href = 'style.css" + new Date().getTime() + "' rel = 'stylesheet' />");
 
     $("#table th").css("position", "sticky");
 

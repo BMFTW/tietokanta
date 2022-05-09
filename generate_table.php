@@ -83,7 +83,7 @@ $html = str_replace("<table>", "<table border = '1' id = 'table' class = 'table 
 $html = str_replace("<th>", "<th><div>", $html);
 $html = str_replace("</th>", "</div></th>", $html);
 $html = str_replace("<td", "<td contenteditable = 'true'", $html);
-$html = str_replace("</td>", "<input type = 'button' class = 'btn btn-primary save' value = 'Tallenna'></td>", $html);
+$html = str_replace("</td>", "<input type = 'button' class = 'save' value = 'Tallenna'></td>", $html);
 $html = str_replace("</td>", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>", $html);
 $html = str_replace('style="text-align: right;"', "", $html);
 $html = preg_replace("/>\s+<\/td>/", ">&nbsp;</td>", $html);

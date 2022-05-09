@@ -33,6 +33,10 @@ body {
   white-space: nowrap;
 }
 
+#table tr {
+  height: 7px;
+}
+
 #table th {
   resize: horizontal;
   overflow: auto;
@@ -61,6 +65,11 @@ body {
 
 input[type="button"]:not(#show_table):not(#addRow):not(#deleteRow) {
   visibility: hidden;
+}
+
+
+.save {
+  background-color: rgb(226, 28, 28) ;
 }
 
 .marked {

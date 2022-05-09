@@ -21,7 +21,7 @@ header("Pragma: no-cache");
 
     <!-- CSS -->
     <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel = "stylesheet" href = "style.css">
+    <link rel = "stylesheet" href = "style.css?<?php echo filemtime("style.css"); ?>">
     <link href = "https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" rel = "stylesheet" />
     <link href = "https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css" rel = "stylesheet">
 
