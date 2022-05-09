@@ -152,7 +152,7 @@ $(document).ready( function() {
         .append("<br>");
 
       $("#modal_column_selection p").css("text-align", "center");
-      $("#modal_column_selection label").has("input[type=checkbox]").css("margin-top", "-50px").css("margin-left", "130px");
+      $("#modal_column_selection label").has("input[type=checkbox]").css("margin-bottom", "-15px").css("margin-left", "130px");
 
       // Always checked
       var uudet  = ["asiakasID", "ASID", "ATID", "AKID", "ALID", "ATUID", "ATHID", "tuoteID", "OID"];
