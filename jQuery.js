@@ -146,10 +146,9 @@ $(document).ready( function() {
       }
 
       $("#modal_column_selection")
+        .append("<br>")
         .append("<hr>")
         .append("<br>")
-        .append("<div style = 'text-align: center'><button type='button' class='btn btn-success' id = 'show_table' value = 'Näytä taulu'>Näytä taulu</button></div>")
-        .append("<br>");
 
       $("#modal_column_selection p").css("text-align", "center");
       $("#modal_column_selection label").has("input[type=checkbox]").css("margin-bottom", "-15px").css("margin-left", "130px");
@@ -192,30 +191,23 @@ $(document).ready( function() {
       // Prevent column names from popping up
       $("#table th").css("position", "static");
 
-      $("#modal_column_selection").on($.modal.AFTER_CLOSE, function() {
-        $("#table th").css("position", "sticky");
-      });
+      // Modal closing
+      $("#modal_column_selection").on( $.modal.AFTER_CLOSE, function() {
 
-      // Click show table
-      $("#show_table").click( function() {
+          $("#table_name").text(tables[table]);
+          $("#selected_table").text(table);
 
-        $("#table_name").text(tables[table]);
-        $("#selected_table").text(table);
+          var columns = [];
 
-        var columns = [];
+          $("input[name=columns]:checked").each( function() {
+            column = $(this).val();
+            columns.push(column);
+          });
 
-        $("input[name=columns]:checked").each( function() {
-          column = $(this).val();
-          columns.push(column);
-        });
+          columns = columns.join(",");
 
-        columns = columns.join(",");
-
-        // Generate table
-        $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
-
-        // Close modal
-        $.modal.close();
+          // Generate table
+          $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 
       });
 
@@ -387,6 +379,8 @@ $(document).ready( function() {
 
     // Reapply CSS
     $("head").append("<link href = 'style.css' rel = 'stylesheet' />");
+
+    $("#table th").css("position", "sticky");
 
     $("#addRow, #deleteRow").show();
 
