@@ -350,6 +350,15 @@ $(document).ready( function() {
 
         });
 
+        $("#table tr:visible").each( function(i) {
+
+            if ( i % 2 == 0 ) 
+              $(this).css("background-color", "#f2f2f2");
+            else
+              $(this).css("background-color", "white");
+
+        });
+
       });
 
     });
@@ -380,7 +389,7 @@ $(document).ready( function() {
     });
 
     // Reapply CSS
-    $("head").append("<link href = 'style.css" + new Date().getTime() + "' rel = 'stylesheet' />");
+    $("head").append("<link href = 'style.css?" + new Date().getTime() + "' rel = 'stylesheet' />");
 
     $("#table th").css("position", "sticky");
 
