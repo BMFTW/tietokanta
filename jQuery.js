@@ -1,8 +1,10 @@
 $(document).ready( function() {
 
   // Jumbotron
-  $(".jumbotron").children().css("margin-right", "50px");
-  $(".jumbotron").hover( function() { $("#table_selection").slideDown(); });
+  $(".jumbotron")
+    .hover( function() { $("#table_selection").slideDown(); } )
+    .children()
+    .css("margin-right", "50px");
 
   // Instructions
   $("#instructions").click( function() {
