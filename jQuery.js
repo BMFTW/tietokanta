@@ -192,10 +192,12 @@ $(document).ready( function() {
       $("#table th").css("position", "static");
 
       // Modal closing
-      $("#modal_column_selection").on( $.modal.AFTER_CLOSE, function() {
+      $("#modal_column_selection").unbind().on( $.modal.AFTER_CLOSE, function() {
 
           $("#table_name").text(tables[table]);
           $("#selected_table").text(table);
+
+          $("#table_element").empty();
 
           var columns = [];
 
