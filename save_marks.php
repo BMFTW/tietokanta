@@ -8,7 +8,7 @@ $value = $_REQUEST["value"];
 $table = str_replace("<space>", " ", $table);
 $value = str_replace("<space>", " ", $value);
 
-$db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
+$db = "haipro";
 
 $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user_db, $pwd_db);
 

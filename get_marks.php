@@ -5,7 +5,7 @@ include("config.php");
 $table = $_REQUEST["table"];
 $table = str_replace("<space>", " ", $table);
 
-$db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
+$db = "haipro";
 
 $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user_db, $pwd_db);
 
