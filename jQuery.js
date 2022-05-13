@@ -6,6 +6,27 @@ $(document).ready( function() {
     .children()
     .css("margin-right", "50px");
 
+  // Show table selection if mouse stops on jumbotron
+  // $(".jumbotron")
+  //   .children()
+  //   .css("margin-right", "50px");
+
+  // var moveTimer;
+
+  // $(".jumbotron").on("mouseout",function(){
+  //   clearTimeout(moveTimer);
+  // });
+
+  // $(".jumbotron").on("mousemove",function() {
+
+  //   clearTimeout(moveTimer);
+
+  //   moveTimer = setTimeout( function() {
+  //     $("#table_selection").slideDown(); 
+  //   }, 100)
+
+  // });
+
   // Instructions
   $("#instructions").click( function() {
 
