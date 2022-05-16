@@ -90,18 +90,7 @@ $(document).ready( function() {
     "crm_pk_kohteet"                : "PK-kohteet",
 
     "crm_tj_irtisanotut"            : "Irtisanotut",
-    "crm_tj_arkistokanta"           : "Arkistokanta",
-
-    "crm_haipro_kohde_laskut"       : "HaiPro-laskut",
-    "crm_wpro_kohde_laskut"         : "WPro-laskut",
-
-    "crm_LOVe_asiakkaat"            : "LOVe-asiakkaat",
-    "crm_LOVe_laskut"               : "LOVe-laskut",
-
-    "crm_SAVe_asiakkaat"            : "SÄVe-asiakkaat",
-    "crm_SAVe_laskut"               : "SÄVe-laskut",
-
-    "crm_eloki_asiakkaat"           : "eLOKI-asiakkaat"
+    "crm_tj_arkistokanta"           : "Arkistokanta"
 
   }
 
@@ -113,10 +102,8 @@ $(document).ready( function() {
   $("label").has("input[value=crm_haipro_kohteet]").css("color", "blue");
   $("label").has("input[value^=crm_tj]").css("color", "grey");
   $("label").has("input[value=crm_tj_kohteet]").css("color", "red");
-  $("label").has("input[value$=_kohde_laskut]").css("color", "brown");
   $("label").has("input[value^=crm_LOVe]").css("color", "YellowGreen");
   $("label").has("input[value^=crm_SAVe]").css("color", "CadetBlue");
-  $("label").has("input[value=crm_eloki_asiakkaat]").css("color", "Tomato");
   $("label").has("input[value^=crm_asiakkaat]").css("color", "LightGrey");
   $("label").has("input[value^=crm_tuotteet]").css("color", "green");
 
@@ -278,10 +265,6 @@ $(document).ready( function() {
       id_col = "Kohde_ID";
     else if ( table == "crm_qpro_kohteet" )
       id_col = "KohdeID";
-    else if ( table == "crm_haipro_kohde_laskut" || table == "crm_wpro_kohde_laskut" || table == "crm_LOVe_laskut" || table == "crm_SAVe_laskut" )
-      id_col = "lasku_nro";
-    else if ( table == "crm_LOVe_asiakkaat" || table == "crm_SAVe_asiakkaat" || table == "crm_eloki_asiakkaat" )
-      id_col = "Asiakas_ID";
 
     $("#id_col").text(id_col);
 

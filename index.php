@@ -72,18 +72,7 @@ header("Pragma: no-cache");
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_wpro_kohteet">        WPro-kohteet           </label></tr> <br> <br>
 
                         <tr><label> <input type = "radio"  name = "table"  value = "crm_tj_irtisanotut">      Irtisanotut            </label></tr> <br>
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_tj_arkistokanta">     Arkistokanta           </label></tr> <br> <br>
-
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_haipro_kohde_laskut"> HaiPro-laskut          </label></tr> <br>
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_wpro_kohde_laskut">   WPro-laskut            </label></tr> <br> <br>
-
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_LOVe_asiakkaat">      LOVe-asiakkaat         </label></tr> <br>
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_LOVe_laskut">         LOVe-laskut            </label></tr> <br> <br>
-
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_SAVe_asiakkaat">      SÄVe-asiakkaat         </label></tr> <br>
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_SAVe_laskut">         SÄVe-laskut            </label></tr> <br> <br>
-
-                        <tr><label> <input type = "radio"  name = "table"  value = "crm_eloki_asiakkaat">     eLOKI-asiakkaat        </label></tr> <br> <br>
+                        <tr><label> <input type = "radio"  name = "table"  value = "crm_tj_arkistokanta">     Arkistokanta           </label></tr> <br>
 
                     </tbody>
                         

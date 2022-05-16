@@ -33,8 +33,6 @@ $haipro_tables = array(
   "crm_potra_kohteet",
   "crm_rapro_kohteet",
   "crm_samra_kohteet",
-  "crm_haipro_kohde_laskut",
-  "crm_wpro_kohde_laskut",
   "crm_tj_irtisanotut",
   "crm_tj_arkistokanta",
   "crm_pk_kohteet"
