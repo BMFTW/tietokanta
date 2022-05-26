@@ -32,6 +32,7 @@ $(document).ready( function() {
 
     $("#modal_instructions")
       .empty()
+      .css("overflow", "hidden")
       .append("<p style = 'text-align: center; font-weight: bold'>Ohje</p>")
       .append("<hr>")
       .append("<p>- Tauluvalinnassa saa sarakevalintanäkymän esiin painamlla taulun nimeä hiiren oikealla painikkeella")
@@ -47,7 +48,8 @@ $(document).ready( function() {
     $("#modal_instructions p:gt(0)").css("text-align", "justify");
 
     $("#modal_instructions").modal({
-      showClose: false
+      showClose: false,
+      fadeDuration: 100
     });
 
     $("#modal_column_selection").on($.modal.AFTER_CLOSE, function() {
@@ -130,6 +132,7 @@ $(document).ready( function() {
 
     $("#modal_column_selection")
       .empty()
+      .css("overflow", "auto")
       .append("<p style = 'margin-top: 10px'><b>" + tables[table] + "</b></p>")
       .append("<p>Valitse tiedot</p>")
       .append("<hr>")
@@ -193,7 +196,8 @@ $(document).ready( function() {
 
       // Open modal
       $("#modal_column_selection").modal({
-        showClose: false
+        showClose: false,
+        fadeDuration: 100
       });
 
       // Prevent column names from popping up
@@ -515,11 +519,25 @@ $(document).ready( function() {
 
         var error = $(this).text() != "";
 
+        if ( error ) {
+
+          var error_message = $("#update_table").html();
+
+          $("#modal_error_message")
+            .empty()
+            .css( { "height": "150px", "width": "auto", "overflow": "hidden" } )
+            .append( "<p style = 'color: red'>" + error_message + "</p>" );
+
+          $("#modal_error_message").modal({
+            showClose: false,
+            fadeDuration: 100
+          });
+
+        }
+
         var color = error ? "red" : "#05e310";
 
         $button.closest("td").css("background-color", color);
-
-        $(this).css("color", color);
 
     });
 
@@ -609,8 +627,22 @@ $(document).ready( function() {
 
         var error = $(this).text() != "";
 
-        if ( error )
-          $(this).css("color", "red");
+        if ( error ) {
+
+          var error_message = $("#insert_row").html();
+
+          $("#modal_error_message")
+            .empty()
+            .css( { "height": "110px", "width" : "350px", "overflow": "hidden" } )
+            .append( "<p style = 'color: red'>" + error_message + "</p>" );
+
+          $("#modal_error_message").modal({
+            showClose: false,
+            fadeDuration: 100
+          });
+
+        } 
+
         else
           $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 
@@ -660,8 +692,22 @@ $(document).ready( function() {
 
         var error = $(this).text() != "";
 
-        if ( error )
-          $(this).css("color", "red");
+        if ( error ) {
+
+          var error_message = $("#delete_row").html();
+
+          $("#modal_error_message")
+            .empty()
+            .css( { "height": "110px", "width" : "350px", "overflow": "hidden" } )
+            .append( "<p style = 'color: red'>" + error_message + "</p>" );
+
+          $("#modal_error_message").modal({
+            showClose: false,
+            fadeDuration: 100
+          });
+
+        } 
+
         else
           $("#table_element").load("generate_table.php?table=" + table + "&columns=" + columns + "&uniqueID=" + new Date().getTime(), function() { afterTableGenerated(); });
 

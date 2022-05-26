@@ -144,8 +144,6 @@ header("Pragma: no-cache");
 
                 <h4 id = "table_name"></h4>
 
-                <p id = "update_table"></p>
-
             </div>
 
         </div>
@@ -187,6 +185,7 @@ header("Pragma: no-cache");
             <div class = "col-md-12">
 
                 <p id = "selected_table"></p>
+                <p id = "update_table">  </p>
                 <p id = "id_col">        </p>
                 <p id = "columns">       </p>
                 <p id = "get_marks">     </p>
@@ -197,6 +196,7 @@ header("Pragma: no-cache");
                 <!-- Modal -->
                 <div class = "modal" id = "modal_instructions"></div>
                 <div class = "modal" id = "modal_column_selection"></div>
+                <div class = "modal" id = "modal_error_message"></div>
 
             </div>
 

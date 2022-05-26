@@ -6,6 +6,11 @@ $table  = $_REQUEST["table"];
 $id_col = $_REQUEST["id_col"];
 $value  = $_REQUEST["value"];
 
+if ( !is_numeric( $value ) ) {
+    echo "<b>Lisäys epäonnistui. Virheilmoitus:</b><br><br>Lisättävän arvon tulee olla numero.";
+    exit();
+}
+
 $db = in_array($table, $haipro_tables) ? "haipro" : "verkkokurssit";
 
 $conn = new PDO("sqlsrv:Server=$server;Database=$db", $user_db, $pwd_db);

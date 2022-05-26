@@ -37,7 +37,7 @@ try {
 
 } catch ( PDOException $e ) {
 
-    echo "<b>Tallennus epäonnistui. Virheilmoitus:</b><br><i>" . $e -> getMessage() . "</i>";
+    echo "<b>Tallennus epäonnistui. Virheilmoitus:</b><br><br><i>" . $e -> getMessage() . "</i>";
 
 }
 
