@@ -1,9 +1,9 @@
 <?php
 
 // Login credentials
-$server  = "83.150.87.73";
-$user_db = "haipro";
-$pwd_db  = "haipro";
+$server  = "xxx";
+$user_db = "xxx";
+$pwd_db  = "xxx";
 
 // HaiPro tables
 $haipro_tables = array(
