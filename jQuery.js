@@ -1,5 +1,7 @@
 $(document).ready( function() {
 
+  var a = 0;
+
   // Jumbotron
   $(".jumbotron")
     .hover( function() { $("#table_selection").slideDown(); } )
